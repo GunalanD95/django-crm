@@ -247,3 +247,17 @@ table tr{
 td{
     padding: 23px;
 }
+
+table tbody tr:last-child{
+    border-bottom: none;
+}
+
+table tbody tr:hover{
+    background: linear-gradient(45deg,#47cebe,#2f80ed);
+}
+
+td i {
+    color: #444;
+    cursor: pointer;
+    padding: 0 10px;
+}
