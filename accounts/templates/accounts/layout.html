@@ -8,21 +8,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <title>Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- NAV BAR -->
+    <div id="page-container">
+
     <div class="navbar">
-        <nav>
+        <nav class="nav">
             <label class="logo">ZoldyckCRM</label>
-          <ul>
+          <ul class="ul-nav">
               <li><a  href="#">HOME</a></li>
-              <li><a  href="#">PRODUCTS</a></li>
-              <li><a  href="#">CUSTOMERS</a></li>
+              <li><a  href="{% url 'products' %}">PRODUCTS</a></li>
+              <li><a  href="{% url 'customers' %}">CUSTOMERS</a></li>
               <li><a  href="#">ORDERS</a></li>
           </ul>  
         </nav>
     </div>
 
+
+
+    <!-- MAIN CONTENT -->
+    <article>
+        {% block content %}
+
+        {% endblock %}
+    </article>
+
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-container">
+            <h3>ZoldyckCRM</h3>
+            <!-- <p>The Zoldyck Family (ゾルディック家け, Zorudikku-ke) is considered to be, by far, the deadliest and most infamous group of assassins in the world.</p> -->
+            <div class="social">
+                <ul class="socials">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fas fa-envelope-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>copyright &copy;2022 Zoldyck-Tech. designed by <span>Gunalan D</span></p>
+            </div>    
+        </div>
+    </footer>
+
+
+    </div>
 </body>
 </html>
