@@ -3,6 +3,143 @@
 
 {% block content %}
 
-    <h1>DASHBOARD</h1>
+<section>
+    <div class="main">
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">12</div>
+                    <div class="card-name">Customers</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">10</div>
+                    <div class="card-name">Orders</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="tables">
+            <div class="latest-customers">
+                <div class="heading">
+                    <h2>Customers</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+                <table class="customers">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="img-box-small">
+                                    <img src="/user10.jpg" alt="">
+                                </div>
+                            </td>
+                            <td>John Doe</td>
+                            <td>John@gmail.com</td>
+                            <td>+91 9876543210</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="img-box-small">
+                                    <img src="/user2.jpg" alt="">
+                                </div>
+                            </td>
+                            <td>John Doe</td>
+                            <td>John@gmail.com</td>
+                            <td>+91 9876543210</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="latest-orders">
+                <div class="heading">
+                    <h2>Orders</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+
+                <table class="orders">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Date Ordered</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                             <td>LAPTOP</td>
+                             <td>2020-06-01</td>
+                            <td>Pending</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                             <td>IPHONE</td>
+                             <td>2020-06-01</td>
+                             <td>Pending</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                             <td>DEV</td>
+                             <td>2020-06-01</td>
+                             <td>Pending</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        
+    </div>
+</section>
 
 {% endblock %}

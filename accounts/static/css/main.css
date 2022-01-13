@@ -110,7 +110,7 @@ footer{
     justify-content: center;
     color:#ffff;
     list-style: none;
-    margin: 1rem 0 3rem 0;
+    margin: 1rem 0 2rem 0;
  }
 
 .socials li {
@@ -137,3 +137,113 @@ footer{
     padding: 20px 0;
     text-align: center;
 } */
+
+
+.cards{
+    margin-top: 20px;
+    width:100%;
+    padding: 25px 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: 600px 850px;
+    grid-template-columns: repeat(600px 1fr / 850px 1fr); */
+    grid-gap: 30px;
+}
+
+
+.cards .card{
+    background: linear-gradient(45deg,#47cebe,#2f80ed);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.number{
+    font-size:35px;
+    font-weight: 600;
+    color: navajowhite;
+}
+
+.card-name{
+    color: #444;
+    font-weight: 600;
+}
+
+.icon-box{
+    font-size: 45px;
+    color: moccasin;
+}
+
+
+.tables{
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 25px 35px;
+    grid-gap: 30px;
+    align-items: self-start;
+}
+
+.img-box-small{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    /* padding-right: 23px; */
+}
+
+.img-box-small img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* text-align: center; */
+}
+
+.latest-orders , .latest-customers{
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: peru;
+}
+
+.btn{
+    padding: 5px 10px;
+    background: linear-gradient(45deg,#47cebe,#2f80ed);
+    color: navajowhite;
+    text-align: center;
+    text-decoration: none;
+}
+
+table{
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+thead td{
+    font-weight: 700;
+    color: #444;
+}
+
+table tr{
+    border-bottom: 1px solid rgba(0,0,0,0.1)
+}
+td{
+    padding: 23px;
+}
