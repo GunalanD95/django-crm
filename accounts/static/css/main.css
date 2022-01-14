@@ -69,6 +69,7 @@ label.logo:hover{
 
 
 footer{
+    margin-top: 12rem;
     background: #205157;
     height: auto;
     width: 100%;
@@ -76,9 +77,10 @@ footer{
     padding: 10px;
     color: #fff;
     bottom: 0;
-    position: absolute;
-    /* height: 12rem; */
+    position: relative;
+    height: 11rem;
 }
+
 
 
 .footer-container{
@@ -261,3 +263,34 @@ td i {
     cursor: pointer;
     padding: 0 10px;
 }
+
+
+.crt-cus ,.crt-ord{
+    background: #fff;
+    padding: 10px 15px;
+    width: 25%;
+    width: 100%;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
+    transition: 0.5s;
+    color: #ffff;
+}
+
+
+/* .crt-cus a ,.crt-ord a{
+    color: #ffff;
+    text-decoration: none;
+    font-size: 10px;
+} */
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+ 
+ 
+ 
