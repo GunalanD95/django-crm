@@ -2,7 +2,60 @@
 
 
 {% block content %}
-
-    <h1>PRODUCTS</h1>
+    <div class="product-tables">
+        <div class="button">
+            <button class="crt-prod"><a href="">CREATE PRODUCT</a></button>
+        </div>
+        <div class="latest-products">  
+            <div class="heading">
+                <h2>Products</h2>
+                <a href="#" class="btn">View All</a>
+            </div>
+            <table class="products">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="img-box-small">
+                                <img src="/user10.jpg" alt="">
+                            </div>
+                        </td>
+                        <td>John Doe</td>
+                        <td>John@gmail.com</td>
+                        <td>+91 9876543210</td>
+                        <td>
+                            <i class="far fa-eye"></i>
+                            <i class="far fa-edit"></i>
+                            <i class="far fa-trash-alt"></i>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="img-box-small">
+                                <img src="/user2.jpg" alt="">
+                            </div>
+                        </td>
+                        <td>John Doe</td>
+                        <td>John@gmail.com</td>
+                        <td>+91 9876543210</td>
+                        <td>
+                            <i class="far fa-eye"></i>
+                            <i class="far fa-edit"></i>
+                            <i class="far fa-trash-alt"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 {% endblock %}

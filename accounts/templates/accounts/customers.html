@@ -3,6 +3,94 @@
 
 {% block content %}
 
-    <h1>CUSTOMERS</h1>
+<section>
+    <div class="main">
+        <div class="cus-cards">
+
+            <div class="cus-card">
+                <div class="card-content">
+                    <h3>Customer:</h3>
+                    <button class="bnx"><a href="">Update Customer</a></button>
+                    <button class="bnx"><a href="">Delete Customer</a></button>
+                </div>
+            </div>
+
+            <div class="cus-card">
+                <div class="card-content">
+                    <h3>Contact Information:</h3>
+                    <p>Email:</p>
+                    <p>Phone:</p>
+                </div>
+            </div>
+
+            <div class="cus-card1">
+                <div class="card-content">
+                    <!-- <h3>Total Orders:</h3>
+                    <h3>Total Orders:</h3> -->
+                    <h3>Total Orders:</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cus-prod-tables">
+            <div class="button">
+                <button class="crt-ser"><a href="">Search</a></button>
+            </div>
+            <div class="latest-cus-prod">
+
+                <table class="cus-prod-customers">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="img-box-small">
+                                    <img src="/user10.jpg" alt="">
+                                </div>
+                            </td>
+                            <td>John Doe</td>
+                            <td>John@gmail.com</td>
+                            <td>+91 9876543210</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="img-box-small">
+                                    <img src="/user2.jpg" alt="">
+                                </div>
+                            </td>
+                            <td>John Doe</td>
+                            <td>John@gmail.com</td>
+                            <td>+91 9876543210</td>
+                            <td>
+                                <i class="far fa-eye"></i>
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
+
+        </div>
+        
+    </div>
+</section>
 
 {% endblock %}
