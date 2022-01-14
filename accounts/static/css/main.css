@@ -185,7 +185,8 @@ footer{
     width:100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 25px 35px;
+    /* padding: 25px 30px; */
+    padding: 10px;
     grid-gap: 30px;
     align-items: self-start;
 }
@@ -248,7 +249,7 @@ table tr{
     border-bottom: 1px solid rgba(0,0,0,0.1)
 }
 td{
-    padding: 23px;
+    padding: 12px;
 }
 
 table tbody tr:last-child{
@@ -262,7 +263,7 @@ table tbody tr:hover{
 td i {
     color: #444;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 
@@ -311,7 +312,7 @@ td i {
 
 .latest-products{
     background: #fff;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }

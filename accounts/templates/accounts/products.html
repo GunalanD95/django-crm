@@ -14,46 +14,29 @@
             <table class="products">
                 <thead>
                     <tr>
-                        <th>Photo</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Tag</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for product in products %}
                     <tr>
-                        <td>
-                            <div class="img-box-small">
-                                <img src="/user10.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>John Doe</td>
-                        <td>John@gmail.com</td>
-                        <td>+91 9876543210</td>
+                        <td>{{ product.product_name }}</td>
+                        <td>{{ product.product_price }}</td>
+                        <td>{{ product.product_category }}</td>
+                        <td>{{ product.product_description }}</td>
+                        <td>{{ product.product_tag }}</td>
                         <td>
                             <i class="far fa-eye"></i>
                             <i class="far fa-edit"></i>
                             <i class="far fa-trash-alt"></i>
                         </td>
                     </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="img-box-small">
-                                <img src="/user2.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>John Doe</td>
-                        <td>John@gmail.com</td>
-                        <td>+91 9876543210</td>
-                        <td>
-                            <i class="far fa-eye"></i>
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-trash-alt"></i>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

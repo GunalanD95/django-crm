@@ -45,43 +45,28 @@
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
+                            <th>Mobile</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for cus in customers %}
                         <tr>
                             <td>
                                 <div class="img-box-small">
-                                    <img src="/user10.jpg" alt="">
+                                    <img src="{{ cus.customer_pic.url }}">
                                 </div>
                             </td>
-                            <td>John Doe</td>
-                            <td>John@gmail.com</td>
-                            <td>+91 9876543210</td>
+                            <td>{{ cus.customer_name }}</td>
+                            <td>{{ cus.customer_email }}</td>
+                            <td>{{ cus.customer_mobile }}</td>
                             <td>
                                 <i class="far fa-eye"></i>
                                 <i class="far fa-edit"></i>
                                 <i class="far fa-trash-alt"></i>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="img-box-small">
-                                    <img src="/user2.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>John Doe</td>
-                            <td>John@gmail.com</td>
-                            <td>+91 9876543210</td>
-                            <td>
-                                <i class="far fa-eye"></i>
-                                <i class="far fa-edit"></i>
-                                <i class="far fa-trash-alt"></i>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
@@ -98,47 +83,33 @@
                 <table class="orders">
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>REF No.</th>
+                            <th>Customer</th>
                             <th>Date Ordered</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for ord in orders %}
                         <tr>
-                             <td>LAPTOP</td>
-                             <td>2020-06-01</td>
-                            <td>Pending</td>
+                             <td>{{ ord.sale_order_referencenumber  }}</td>
+                             <td>{{ ord.sale_order_customer }}</td>
+                             <td>{{ ord.sale_order_date }}</td>
+                             <td>{{ ord.sale_order_product  }}</td>
+                             <td>{{ ord.sale_order_quantity }}</td>
+                             <td>{{ ord.sale_order_total_price  }}</td>
+                             <td>{{ ord.status  }}</td>
                             <td>
                                 <i class="far fa-eye"></i>
                                 <i class="far fa-edit"></i>
                                 <i class="far fa-trash-alt"></i>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                             <td>IPHONE</td>
-                             <td>2020-06-01</td>
-                             <td>Pending</td>
-                            <td>
-                                <i class="far fa-eye"></i>
-                                <i class="far fa-edit"></i>
-                                <i class="far fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                             <td>DEV</td>
-                             <td>2020-06-01</td>
-                             <td>Pending</td>
-                            <td>
-                                <i class="far fa-eye"></i>
-                                <i class="far fa-edit"></i>
-                                <i class="far fa-trash-alt"></i>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
