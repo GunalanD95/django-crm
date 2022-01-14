@@ -1,3 +1,4 @@
+from itertools import product
 from sre_parse import CATEGORIES
 from django.db import models
 
@@ -15,19 +16,31 @@ class Customer(models.Model):
     def __str__(self):
         return self.customer_name
 
+class ProductTag(models.Model):
+    product_tag = models.CharField(max_length=200, null= True)
+
+    def __str__(self):
+        return self.product_tag
+
+
 class Product(models.Model):
 
     CATEGORIES = (
         ('service', 'Service'),      
         ('stockable', 'Stockable'),
     )
-
-
     product_name = models.CharField(max_length=200, null= True)
     product_price = models.FloatField(null= True)
     product_category = models.CharField(max_length=200, null= True , choices=CATEGORIES)
     product_description = models.CharField(max_length=200, null= True)
     date_created = models.DateTimeField(auto_now_add=True , null= True)
+    product_tag = models.ManyToManyField(ProductTag)
+
+
+    def __str__(self):
+        return self.product_name
+
+
 
 
 class SaleOrder(models.Model):
@@ -39,8 +52,8 @@ class SaleOrder(models.Model):
         ('cancelled', 'Cancelled'),
     )
     sale_order_referencenumber = models.CharField(max_length=200, null= True)
-    #sale_order_customer = 
-    #sale_order_product = 
+    sale_order_customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null= True) # added a realtionship between the two models
+    sale_order_product =  models.ForeignKey(Product, on_delete=models.SET_NULL, null= True)
     sale_order_quantity = models.IntegerField(null= True)
     sale_order_total_price = models.FloatField(null= True)
     status = models.CharField(max_length=200, null= True , choices=STATUS, default='quotation')
