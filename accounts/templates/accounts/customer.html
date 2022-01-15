@@ -18,8 +18,8 @@
             <div class="cus-card">
                 <div class="card-content">
                     <h3>Contact Information:</h3>
-                    <p>Email:</p>
-                    <p>Phone:</p>
+                    <p>Email:  <span style="text-align: right;">{{ customer.customer_email }}</span></p>
+                    <p>Phone: {{ customer.customer_mobile }}</p>
                 </div>
             </div>
 
@@ -28,6 +28,7 @@
                     <!-- <h3>Total Orders:</h3>
                     <h3>Total Orders:</h3> -->
                     <h3>Total Orders:</h3>
+                    <h1>{{order_count}}</h3>
                 </div>
             </div>
         </div>
@@ -50,23 +51,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for cus in customers %}
                         <tr>
                             <td class="id-td">
                                 <div class="img-box-small-cus">
-                                    <img src="{{ cus.customer_pic.url }}">
+                                    <img src="{{ customer.customer_pic.url }}">
                                 </div>
                             </td>
-                            <td>{{ cus.customer_name }}</td>
-                            <td>{{ cus.customer_email }}</td>
-                            <td>{{ cus.customer_mobile }}</td>
+                            <td>{{ customer.customer_name }}</td>
+                            <td>{{ customer.customer_email }}</td>
+                            <td>{{ customer.customer_mobile }}</td>
                             <td>
                                 <!-- <i class="far fa-eye"></i> -->
                                 <i class="far fa-edit"></i>
                                 <i class="far fa-trash-alt"></i>
                             </td>
                         </tr>
-                        {% endfor %}
                     </tbody>
                 </table>
             </div>

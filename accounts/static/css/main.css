@@ -266,9 +266,7 @@ td i {
     padding: 0 5.5px;
 }
 
-.id-td{
-    width: 10%;
-}
+
 .crt-cus ,.crt-ord{
     background: #fff;
     padding: 10px 15px;
@@ -365,6 +363,12 @@ td i {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
+.cus-card1 h1{
+    padding: 20px;
+    font-size: 3rem;
+    text-align: center;
+}
+
 .card-content{
     display: grid;
     grid-gap: 10px;
@@ -414,4 +418,25 @@ td i {
 
 .button{
     margin: 1.7rem;
+}
+
+
+.img-box-small-cus{
+    position: relative;
+    /* width: 40px; */
+    width: 60%;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.img-box-small-cus img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

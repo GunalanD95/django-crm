@@ -32,3 +32,15 @@ def customers(request):
         'customers': customers
     }
     return render(request, 'accounts/customers.html',context)
+
+
+def customer(request, customer_id):
+    customer = Customer.objects.get(id=customer_id)
+    #orders = SaleOrder.objects.filter(sale_order_customer=customer)
+    orders = customer.saleorder_set.all() # this is the same as above
+    order_count = orders.count()
+    context = {
+        'customer': customer,
+        'order_count': order_count,
+    }
+    return render(request, 'accounts/customer.html',context)
