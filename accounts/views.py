@@ -36,11 +36,24 @@ def customers(request):
 
 def customer(request, customer_id):
     customer = Customer.objects.get(id=customer_id)
-    #orders = SaleOrder.objects.filter(sale_order_customer=customer)
+    #saleorder_set = SaleOrder.objects.filter(sale_order_customer=customer)
+    saleorder = SaleOrder.objects.all()
     orders = customer.saleorder_set.all() # this is the same as above
     order_count = orders.count()
     context = {
         'customer': customer,
         'order_count': order_count,
+        'orders': orders,
     }
     return render(request, 'accounts/customer.html',context)
+
+
+def total_orders(request):
+    orders = SaleOrder.objects.all()
+    context = {
+        'orders': orders
+    }
+    return render(request, 'accounts/orders.html',context)
+
+def create_customer(request):
+    return render(request, 'accounts/create_customer.html')

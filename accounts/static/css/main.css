@@ -440,3 +440,119 @@ td i {
     height: 100%;
     object-fit: cover;
 }
+
+/* CUSTOMER CREATION STYLE STARTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@200&family=Quicksand:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.reg-container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #71b7e6,#9b59b6);
+    padding: 20px;
+}
+
+.reg-user-details{
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: 5px;
+}
+
+.reg-user-details .reg-title{
+    font-size: 25px;
+    font-weight: 900;
+    position: relative;
+}
+
+.reg-user-details .reg-title::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left:0;
+    bottom: 0;
+    background: #71b7e6;
+}
+
+.reg-container form .reg-user-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .reg-user-details .input-box{
+    margin: 20px 0 12px 0;
+    width: 100%;
+}
+
+
+form .reg-user-details .input-box .reg-details{
+    font-weight: 900;
+    margin-bottom: 5px;
+    /* display: block; */
+}
+
+
+.reg-user-details .input-box input{
+    height: 35px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.reg-user-details .input-box .input{
+    height: 27px;
+    height: fit-content;
+    width: 32%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 0px;
+    padding: 0px;
+    font-size: 16px;
+    display: block;
+}
+
+form .reg-submit{
+    height: 45px;
+    margin:25px 0;
+}
+
+form .reg-submit input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(135deg, #71b7e6,#9b59b6);
+    border: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+form .reg-submit input:hover{
+    background: linear-gradient(-135deg, #71b7e6,#9b59b6); 
+}
+
+
+
+
+
+/* CUSTOMER CREATION STYLE ENDS */

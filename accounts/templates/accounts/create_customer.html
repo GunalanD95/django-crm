@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    
+    <div class="reg-container">   
+        <form action="">    
+            <div class="reg-user-details">
+                <div class="reg-title">CUSTOMER REGISTRATION</div>
+                <div class="input-box">
+                    <span class="reg-details">Full Name</span>
+                    <input type="text" name="" id="" placeholder="Enter Your Name" required>
+                </div>
+                <div class="input-box">
+                    <span class="reg-details">Email</span>
+                    <input type="text" name="" id="" placeholder="Enter Your Email" required>
+                </div>
+                <div class="input-box">
+                    <span class="reg-details">Mobile Number</span>
+                    <input type="number" name="" id="" placeholder="Enter Your Mobile Number" required>
+                </div>
+                <div class="input-box">
+                    <span class="reg-details">Customer Picture</span>
+                    <input class="input" type="file" name="" id="" placeholder="Upload Customer Picture">
+                </div>
+
+                <div class="reg-submit">
+                    <input type="submit" value="CREATE CUSTOMER">
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+</html>
