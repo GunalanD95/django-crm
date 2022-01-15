@@ -147,7 +147,7 @@ footer{
     width:100%;
     padding: 25px 35px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     /* grid-template-columns: 600px 850px;
     grid-template-columns: repeat(600px 1fr / 850px 1fr); */
     grid-gap: 30px;
@@ -263,10 +263,12 @@ table tbody tr:hover{
 td i {
     color: #444;
     cursor: pointer;
-    padding: 0 5px;
+    padding: 0 5.5px;
 }
 
-
+.id-td{
+    width: 10%;
+}
 .crt-cus ,.crt-ord{
     background: #fff;
     padding: 10px 15px;

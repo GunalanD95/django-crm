@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-content">
-                    <div class="number">12</div>
+                    <div class="number">{{total_customers}}</div>
                     <div class="card-name">Customers</div>
                 </div>
                 <div class="icon-box">
@@ -19,8 +19,17 @@
 
             <div class="card">
                 <div class="card-content">
-                    <div class="number">10</div>
+                    <div class="number">{{total_orders}}</div>
                     <div class="card-name">Orders</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">{{invoiced}}</div>
+                    <div class="card-name">Invoiced</div>
                 </div>
                 <div class="icon-box">
                     <i class="fas fa-shopping-cart"></i>
@@ -61,7 +70,7 @@
                             <td>{{ cus.customer_email }}</td>
                             <td>{{ cus.customer_mobile }}</td>
                             <td>
-                                <i class="far fa-eye"></i>
+                                <!-- <i class="far fa-eye"></i> -->
                                 <i class="far fa-edit"></i>
                                 <i class="far fa-trash-alt"></i>
                             </td>
@@ -85,7 +94,7 @@
                         <tr>
                             <th>REF No.</th>
                             <th>Customer</th>
-                            <th>Date Ordered</th>
+                            <!-- <th>Date Ordered</th> -->
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
@@ -98,13 +107,13 @@
                         <tr>
                              <td>{{ ord.sale_order_referencenumber  }}</td>
                              <td>{{ ord.sale_order_customer }}</td>
-                             <td>{{ ord.sale_order_date }}</td>
+                             <!-- <td>{{ ord.sale_order_date }}</td> -->
                              <td>{{ ord.sale_order_product  }}</td>
                              <td>{{ ord.sale_order_quantity }}</td>
                              <td>{{ ord.sale_order_total_price  }}</td>
                              <td>{{ ord.status  }}</td>
                             <td>
-                                <i class="far fa-eye"></i>
+                                <!-- <i class="far fa-eye"></i> -->
                                 <i class="far fa-edit"></i>
                                 <i class="far fa-trash-alt"></i>
                             </td>

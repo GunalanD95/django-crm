@@ -6,7 +6,7 @@ from django.db import models
 
 
 class Customer(models.Model):
-    customer_pic = models.ImageField(upload_to='media/customer_pics', blank=True)
+    customer_pic = models.ImageField(upload_to='customer_pics/', blank=True)
     customer_name = models.CharField(max_length=50, null= True)
     customer_email = models.CharField(max_length=200 , null= True)
     customer_mobile = models.CharField(max_length=50 , null= True)
@@ -50,6 +50,7 @@ class SaleOrder(models.Model):
         ('pending', 'Pending'),
         ('delivered', 'Delivered'),
         ('cancelled', 'Cancelled'),
+        ('invoiced', 'Invoiced'),
     )
     sale_order_referencenumber = models.CharField(max_length=200, null= True)
     sale_order_customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null= True) # added a realtionship between the two models

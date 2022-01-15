@@ -45,43 +45,28 @@
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
+                            <th>Mobile</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for cus in customers %}
                         <tr>
-                            <td>
+                            <td class="id-td">
                                 <div class="img-box-small">
-                                    <img src="/user10.jpg" alt="">
+                                    <img src="{{ cus.customer_pic.url }}">
                                 </div>
                             </td>
-                            <td>John Doe</td>
-                            <td>John@gmail.com</td>
-                            <td>+91 9876543210</td>
+                            <td>{{ cus.customer_name }}</td>
+                            <td>{{ cus.customer_email }}</td>
+                            <td>{{ cus.customer_mobile }}</td>
                             <td>
-                                <i class="far fa-eye"></i>
+                                <!-- <i class="far fa-eye"></i> -->
                                 <i class="far fa-edit"></i>
                                 <i class="far fa-trash-alt"></i>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="img-box-small">
-                                    <img src="/user2.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>John Doe</td>
-                            <td>John@gmail.com</td>
-                            <td>+91 9876543210</td>
-                            <td>
-                                <i class="far fa-eye"></i>
-                                <i class="far fa-edit"></i>
-                                <i class="far fa-trash-alt"></i>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
