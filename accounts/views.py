@@ -75,8 +75,23 @@ def create_customer(request):
 def create_order(request):
     customers = Customer.objects.all().order_by('id')
     products = Product.objects.all().order_by('id')
+    sale_order = SaleOrder
     context = {
         'customers': customers,
         'products': products,
     }
+
+    if request.method == 'POST':
+        print("request.POST:", request.POST)
+        print("PRODUCT", request.POST.get('sale_order_product'))
+        print("CUSTOMER", request.POST.get('sale_order_customer'))
+        customer = Customer.objects.get(id=request.POST.get('sale_order_customer'))
+        product = Product.objects.get(id=request.POST.get('sale_order_product'))
+        quantity = request.POST.get('sale_order_quantity')
+        total_price = request.POST.get('sale_order_total_price')
+        ref_no = request.POST.get('sale_order_referencenumber')
+        sale_order = SaleOrder(sale_order_referencenumber= ref_no,sale_order_customer=customer, sale_order_product=product, sale_order_quantity=quantity, sale_order_total_price=total_price)
+        sale_order.save()
+        return render(request, 'accounts/home.html')
+
     return render(request, 'accounts/create_order.html',context)

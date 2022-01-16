@@ -84,9 +84,7 @@ form .input-box span.details{
    cursor: pointer;
  }
 
- form input[type="radio"]{
-   display: none;
- }
+
  form .button{
    height: 45px;
    margin: 35px 0
@@ -109,3 +107,21 @@ form .input-box span.details{
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
   }
 
+
+
+  select{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  select:focus,
+  select:valid{
+    border-color: #9b59b6;
+  }

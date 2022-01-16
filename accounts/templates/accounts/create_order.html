@@ -17,13 +17,14 @@
           <form action="#" method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
             <div class="user-details">
+              
               <div class="input-box">
                 <span class="details">REF No.</span>
                 <input type="text" name="sale_order_referencenumber" placeholder="S0001" required>
               </div>
+
               <div class="input-box">
                 <span class="details">Customer</span>
-                <!-- <input type="text" placeholder="Enter your username" required> -->
                 <select name="sale_order_customer">
                   <option value="" selected>None</option>
                   {% for cus in customers %}
@@ -31,24 +32,27 @@
                   {% endfor %}
                 </select>    
               </div>
+
               <div class="input-box">
                 <span class="details">Product</span>
-                <!-- <input type="text" placeholder="Select the Product" required> -->
-                <select name="sale_order_customer">
+                <select name="sale_order_product">
                   <option value="" selected>None</option>
                   {% for prod in products %}
-                  <option value="{{ prod.id }}">{{ prod.product_name }}</option>
+                  <option value="{{ prod.id }}" name="next">{{ prod.product_name }}</option>
                   {% endfor %}
                 </select> 
               </div>
+
               <div class="input-box">
                 <span class="details">Quantity</span>
                 <input type="text" name="sale_order_quantity" placeholder="Enter Quantity" required>
               </div>
+
               <div class="input-box">
                 <span class="details">Total Price</span>
                 <input type="text" name="sale_order_total_price" placeholder="Enter Price" required>
               </div>
+
               <div class="input-box">
                 <span class="details">Status</span>
                 <select name="status">
@@ -58,10 +62,10 @@
                   <option value="delivered">Delivered</option>
                   <option value="cancelled">Cancelled</option>
                   <option value="invoiced">Invoiced</option>
-                  <!-- <input type="text" placeholder="Status" required> -->
                 </select>
               </div>
             </div>
+
             <div class="button">
               <input type="submit" value="CREATE ORDER">
             </div>
