@@ -6,44 +6,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CREATE SALE ORDER</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/order.css' %}">
 </head>
 <body>
-    
-
+  
       <div class="sale-ord-container">
-        <div class="sale-ord-title">Registration</div>
+        <div class="sale-ord-title">CREATE SALE ORDER</div>
         <div class="sale-ord-content">
-          <form action="#">
+          <form action="#" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}} 
             <div class="user-details">
               <div class="input-box">
-                <span class="details">Full Name</span>
-                <input type="text" placeholder="Enter your name" required>
+                <span class="details">REF No.</span>
+                <input type="text" placeholder="S0001" required>
               </div>
               <div class="input-box">
-                <span class="details">Username</span>
+                <span class="details">Customer</span>
                 <input type="text" placeholder="Enter your username" required>
               </div>
               <div class="input-box">
-                <span class="details">Email</span>
-                <input type="text" placeholder="Enter your email" required>
+                <span class="details">Product</span>
+                <input type="text" placeholder="Select the Product" required>
               </div>
               <div class="input-box">
-                <span class="details">Phone Number</span>
-                <input type="text" placeholder="Enter your number" required>
+                <span class="details">Quantity</span>
+                <input type="text" placeholder="Enter Quantity" required>
               </div>
               <div class="input-box">
-                <span class="details">Password</span>
-                <input type="text" placeholder="Enter your password" required>
+                <span class="details">Total Price</span>
+                <input type="text" placeholder="Enter Price" required>
               </div>
               <div class="input-box">
-                <span class="details">Confirm Password</span>
-                <input type="text" placeholder="Confirm your password" required>
+                <span class="details">Status</span>
+                <input type="text" placeholder="Status" required>
               </div>
             </div>
             <div class="button">
-              <input type="submit" value="Register">
+              <input type="submit" value="CREATE ORDER">
             </div>
           </form>
         </div>

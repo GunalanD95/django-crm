@@ -2,6 +2,8 @@ from itertools import product
 from django.shortcuts import render
 from .models import Product, Customer , ProductTag , SaleOrder
 # Create your views here.
+from .forms import OrderForm
+
 
 def home(request):
     orders = SaleOrder.objects.all()
@@ -56,6 +58,17 @@ def total_orders(request):
     return render(request, 'accounts/orders.html',context)
 
 def create_customer(request):
+
+    if request.method == 'POST':
+        print("request.POST:", request.POST)
+        customer = Customer
+        customer_name = request.POST.get('customer_name')
+        customer_email = request.POST.get('customer_email')
+        customer_mobile = request.POST.get('customer_mobile')
+        customer_pic = request.FILES['customer_pic']
+        cus = Customer(customer_name=customer_name, customer_email=customer_email, customer_mobile=customer_mobile, customer_pic=customer_pic)
+        cus.save()
+            
     return render(request, 'accounts/create_customer.html')
 
 

@@ -5,6 +5,8 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
+
+
 body{
   height: 100vh;
   display: flex;
@@ -13,6 +15,9 @@ body{
   padding: 10px;
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
+
+
+
 .sale-ord-container{
   max-width: 700px;
   width: 100%;

@@ -12,24 +12,25 @@
 <body>
     
     <div class="reg-container">   
-        <form method="POST">    
+        <form action="#" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}  
             <div class="reg-user-details">
                 <div class="reg-title">CUSTOMER REGISTRATION</div>
                 <div class="input-box">
                     <span class="reg-details">Full Name</span>
-                    <input type="text" name="" id="" placeholder="Enter Your Name" required>
+                    <input type="text" name="customer_name" id="customer_name" placeholder="Enter Customer Name" required>
                 </div>
                 <div class="input-box">
                     <span class="reg-details">Email</span>
-                    <input type="text" name="" id="" placeholder="Enter Your Email" required>
+                    <input type="text" name="customer_email" id="customer_email" placeholder="Enter Customer Email" required>
                 </div>
                 <div class="input-box">
                     <span class="reg-details">Mobile Number</span>
-                    <input type="number" name="" id="" placeholder="Enter Your Mobile Number" required>
+                    <input type="number" name="customer_mobile" id="customer_mobile" placeholder="Enter Customer Number" required>
                 </div>
                 <div class="input-box">
                     <span class="reg-details">Customer Picture</span>
-                    <input class="input" type="file" name="" id="" placeholder="Upload Customer Picture">
+                    <input class="input" type="file" name="customer_pic" id="customer_pic" placeholder="Upload Customer Picture">
                 </div>
 
                 <div class="reg-submit">
