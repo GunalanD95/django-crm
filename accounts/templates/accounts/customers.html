@@ -52,7 +52,9 @@
                         <tr>
                             <td class="id-td">
                                 <div class="img-box-small-cus">
+                                    {% if cus.customer_pic %}
                                     <img src="{{ cus.customer_pic.url }}">
+                                    {% endif %}
                                 </div>
                             </td>
                             <td>{{ cus.customer_name }}</td>

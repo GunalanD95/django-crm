@@ -68,9 +68,15 @@ def create_customer(request):
         customer_pic = request.FILES['customer_pic']
         cus = Customer(customer_name=customer_name, customer_email=customer_email, customer_mobile=customer_mobile, customer_pic=customer_pic)
         cus.save()
-            
+        return render(request, 'accounts/home.html') 
     return render(request, 'accounts/create_customer.html')
 
 
 def create_order(request):
-    return render(request, 'accounts/create_order.html')
+    customers = Customer.objects.all().order_by('id')
+    products = Product.objects.all().order_by('id')
+    context = {
+        'customers': customers,
+        'products': products,
+    }
+    return render(request, 'accounts/create_order.html',context)
