@@ -42,7 +42,7 @@
         <div class="tables">
             <div class="latest-customers">
                 <div class="button">
-                    <button class="crt-cus"><a href="">CREATE CUSTOMER</a></button>
+                    <button class="crt-cus"><a href="{% url 'create_customer' %}">CREATE CUSTOMER</a></button>
                 </div>
                 <div class="heading">
                     <h2>Customers</h2>
@@ -82,7 +82,7 @@
 
             <div class="latest-orders">
                 <div class="button">
-                    <button class="crt-ord"><a href="">CREATE ORDER</a></button>
+                    <button class="crt-ord"><a href="{% url 'create_order' %}">CREATE ORDER</a></button>
                 </div>
                 <div class="heading">
                     <h2>Orders</h2>

@@ -57,3 +57,7 @@ def total_orders(request):
 
 def create_customer(request):
     return render(request, 'accounts/create_customer.html')
+
+
+def create_order(request):
+    return render(request, 'accounts/create_order.html')
