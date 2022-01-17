@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Product, Customer , ProductTag , SaleOrder
 # Create your views here.
 from .forms import OrderForm
+from django.db.models import Q
 
 
 def home(request):
@@ -95,3 +96,18 @@ def create_order(request):
         return render(request, 'accounts/home.html')
 
     return render(request, 'accounts/create_order.html',context)
+
+def update_order(request, order_id):
+    order = SaleOrder.objects.get(id=order_id)
+    customer = Customer.objects.get(id=order.sale_order_customer.id)
+    product = Product.objects.get(id=order.sale_order_product.id)
+    customers = Customer.objects.filter(~Q(id=product.id))
+    products = Product.objects.filter(~Q(id=customer.id))
+    context = {
+        'order': order,
+        'customer': customer,
+        'product': product,
+        'customers': customers,
+        'products': products,
+    }
+    return render(request, 'accounts/update_order.html',context)

@@ -116,7 +116,7 @@
                              <td>{{ ord.status  }}</td>
                             <td>
                                 <!-- <i class="far fa-eye"></i> -->
-                                <i class="far fa-edit"></i>
+                                <a href="{% url 'update_order' ord.id %}"><i class="far fa-edit"></i></a>
                                 <i class="far fa-trash-alt"></i>
                             </td>
                         </tr>

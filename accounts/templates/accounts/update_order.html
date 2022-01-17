@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE SALE ORDER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/order.css' %}">
+</head>
+<body>
+  
+      <div class="sale-ord-container">
+        <div class="sale-ord-title">CREATE SALE ORDER</div>
+        <div class="sale-ord-content">
+          <form action="#" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">REF No.</span>
+                <input type="text" name="sale_order_referencenumber" value="{{ order.sale_order_referencenumber }}" placeholder="S0001" required>
+              </div>
+
+              <div class="input-box">
+                <span class="details">Customer</span>
+                <select name="sale_order_customer">
+                  {% if customer %}
+                  <option value="{{ customer.id }}" selected>{{ customer.customer_name }}</option>
+                  {% else %}
+                  <option value="" selected>None</option>
+                  {% endif %}
+                  {% for cus in customers %}
+                  <option value="{{ cus.id }}">{{ cus.customer_name }}</option>
+                  {% endfor %}
+                </select>    
+              </div>
+
+              <div class="input-box">
+                <span class="details">Product</span>
+                <select name="sale_order_product">
+                  {% if product %}
+                  <option value="{{ product.id }}" selected>{{ product.product_name }}</option>
+                  {% else %}
+                  <option value="" selected>None</option>
+                  {% endif %}
+                  {% for prod in products %}
+                  <option value="{{ prod.id }}" name="next">{{ prod.product_name }}</option>
+                  {% endfor %}
+                </select> 
+              </div>
+
+              <div class="input-box">
+                <span class="details">Quantity</span>
+                <input type="text" name="sale_order_quantity" value="{{ order.sale_order_quantity }}" placeholder="Enter Quantity" required>
+              </div>
+
+              <div class="input-box">
+                <span class="details">Total Price</span>
+                <input type="text" name="sale_order_total_price" value="{{ order.sale_order_total_price }}" placeholder="Enter Price" required>
+              </div>
+
+              <div class="input-box">
+                <span class="details">Status</span>
+                <select name="status">
+                  <option value="quotation">Quotation</option>
+                  <option value="ordered">Ordered</option>
+                  <option value="pending">Pending</option>
+                  <option value="delivered">Delivered</option>
+                  <option value="cancelled">Cancelled</option>
+                  <option value="invoiced">Invoiced</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button">
+              <input type="submit" value="CREATE ORDER">
+            </div>
+          </form>
+        </div>
+      </div>
+    
+    
+
+
+</body>
+</html
