@@ -135,3 +135,22 @@ def delete_order(request, order_id):
     order = SaleOrder.objects.get(id=order_id)
     order.delete()
     return render(request, 'accounts/home.html')
+
+
+def create_product(request):
+    product_tag = ProductTag.objects.all()
+    context = {
+        'product_tag': product_tag
+    }
+    if request.method == 'POST':
+        print("request.POST:", request.POST)
+        product = Product
+        product_name = request.POST.get('product_name')
+        product_price = request.POST.get('product_price')
+        product_description = request.POST.get('product_description')
+        prod = Product.objects.create(product_name=product_name, product_price=product_price, product_description=product_description)
+        p_tag = ProductTag.objects.get(id=request.POST.get('product_tag'))
+        prod.product_tag.add(p_tag)
+        # prod.save()
+        return render(request, 'accounts/products.html') 
+    return render(request, 'accounts/create_product.html',context)

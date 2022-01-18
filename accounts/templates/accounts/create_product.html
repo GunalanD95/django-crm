@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE SALE ORDER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+  
+    <div class="reg-container">   
+        <form action="#" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}  
+            <div class="reg-user-details">
+                <div class="reg-title">CUSTOMER PRODUCT</div>
+                <div class="input-box">
+                    <span class="reg-details">Product Name</span>
+                    <input type="text" name="product_name" id="product_name" placeholder="Enter Product Name" required>
+                </div>
+                <div class="input-box">
+                    <span class="reg-details">Product Price</span>
+                    <input type="text" name="product_price" id="product_price" placeholder="Enter Product Price" required>
+                </div>
+                <div class="input-box">
+                    <span class="reg-details">Product Description</span>
+                    <input type="text" name="product_description" id="product_description" placeholder="Product Description" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="reg-details">Product Category</span>
+                    <select name="product_tag">
+                      <option value="" selected>None</option>
+                      {% for prod in product_tag %}
+                      <option value="{{ prod.id }}" name="next">{{ prod.product_tag }}</option>
+                      {% endfor %}
+                    </select> 
+                  </div>
+
+                <div class="reg-submit">
+                    <input type="submit" value="CREATE PRODUCT">
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+</html

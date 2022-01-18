@@ -34,7 +34,7 @@ class Product(models.Model):
     product_category = models.CharField(max_length=200, null= True , choices=CATEGORIES)
     product_description = models.CharField(max_length=200, null= True)
     date_created = models.DateTimeField(auto_now_add=True , null= True)
-    product_tag = models.ManyToManyField(ProductTag ,blank=True)
+    product_tag = models.ManyToManyField(ProductTag ,blank=True, null=True)
 
 
     def __str__(self):
