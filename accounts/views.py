@@ -80,12 +80,19 @@ def create_customer(request):
 def create_order(request):
     customers = Customer.objects.all().order_by('id')
     products = Product.objects.all().order_by('id')
-    sale_order = SaleOrder
+    orders = SaleOrder.objects.all()
+    customers = Customer.objects.all()
+    total_orders = orders.count()
+    total_customers = customers.count()
+    invoiced = SaleOrder.objects.filter(status='invoiced').count()
     context = {
+        'orders': orders,
         'customers': customers,
+        'total_orders': total_orders,
+        'total_customers': total_customers,
+        'invoiced': invoiced,
         'products': products,
     }
-
     if request.method == 'POST':
         print("request.POST:", request.POST)
         print("PRODUCT", request.POST.get('sale_order_product'))
@@ -97,7 +104,7 @@ def create_order(request):
         ref_no = request.POST.get('sale_order_referencenumber')
         sale_order = SaleOrder(sale_order_referencenumber= ref_no,sale_order_customer=customer, sale_order_product=product, sale_order_quantity=quantity, sale_order_total_price=total_price)
         sale_order.save()
-        return render(request, 'accounts/home.html')
+        return render(request, 'accounts/home.html',context)
 
     return render(request, 'accounts/create_order.html',context)
 
@@ -105,8 +112,8 @@ def update_order(request, order_id):
     order = SaleOrder.objects.get(id=order_id)
     customer = Customer.objects.get(id=order.sale_order_customer.id)
     product = Product.objects.get(id=order.sale_order_product.id)
-    customers = Customer.objects.filter(~Q(id=product.id))
-    products = Product.objects.filter(~Q(id=customer.id))
+    customers = Customer.objects.filter(~Q(id=customer.id))
+    products = Product.objects.filter(~Q(id=product.id))
     context = {
         'order': order,
         'customer': customer,
@@ -130,15 +137,27 @@ def update_order(request, order_id):
         order.sale_order_quantity=quantity
         order.sale_order_total_price=total_price
         order.save()
-        return render(request, 'accounts/home.html')
+        customers = Customer.objects.all().order_by('id')
+        products = Product.objects.all().order_by('id')
+        orders = SaleOrder.objects.all()
+        customers = Customer.objects.all()
+        total_orders = orders.count()
+        total_customers = customers.count()
+        invoiced = SaleOrder.objects.filter(status='invoiced').count()
+        context = {
+            'orders': orders,
+            'customers': customers,
+            'total_orders': total_orders,
+            'total_customers': total_customers,
+            'invoiced': invoiced,
+            'products': products,
+        }
+        return render(request, 'accounts/home.html',context)
 
     return render(request, 'accounts/update_order.html',context)
 
 
-def delete_order(request, order_id):
-    order = SaleOrder.objects.get(id=order_id)
-    order.delete()
-    return render(request, 'accounts/home.html')
+
 
 
 def create_product(request):
@@ -164,3 +183,9 @@ def create_product(request):
 
 def update_product(request, product_id):
     product_tag = ProductTag.objects.all()
+
+
+def delete_order(request, order_id):
+    order = SaleOrder.objects.get(id=order_id)
+    order.delete()
+    return render(request, 'accounts/home.html')
