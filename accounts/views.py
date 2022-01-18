@@ -129,3 +129,9 @@ def update_order(request, order_id):
         return render(request, 'accounts/home.html')
 
     return render(request, 'accounts/update_order.html',context)
+
+
+def delete_order(request, order_id):
+    order = SaleOrder.objects.get(id=order_id)
+    order.delete()
+    return render(request, 'accounts/home.html')

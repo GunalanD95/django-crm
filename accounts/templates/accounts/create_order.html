@@ -44,8 +44,13 @@
               </div>
 
               <div class="input-box">
+                <span class="details">Unit Price</span>
+                <input type="text" name="sale_unit_price" placeholder="Enter Unit Price" required>
+              </div>
+
+              <div class="input-box">
                 <span class="details">Quantity</span>
-                <input type="text" name="sale_order_quantity" placeholder="Enter Quantity" required>
+                <input type="text" name="sale_order_quantity" placeholder="Enter Quantity" oninput="calc()" required>
               </div>
 
               <div class="input-box">
@@ -72,6 +77,17 @@
           </form>
         </div>
       </div>
+
+      <script>
+        console.log("Hello");
+        function calc() 
+        {
+          var unit_price = document.getElementsByName('sale_unit_price')[0].value;
+          var quantity = document.getElementsByName('sale_order_quantity')[0].value;
+          var total_price = unit_price * quantity;
+          document.getElementsByName('sale_order_total_price')[0].value = total_price;
+        }
+      </script>
     
     
 
