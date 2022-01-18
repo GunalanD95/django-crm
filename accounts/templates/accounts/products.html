@@ -29,7 +29,9 @@
                         <td>{{ product.product_price }}</td>
                         <td>{{ product.product_category }}</td>
                         <td>{{ product.product_description }}</td>
-                        <td>{{ product.product_tag }}</td>
+                        {% for tag in product.product_tag.all %}
+                        <td>{{ tag }}</td>
+                        {% endfor %}
                         <td>
                             <!-- <i class="far fa-eye"></i> -->
                             <i class="far fa-edit"></i>

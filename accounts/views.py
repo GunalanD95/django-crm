@@ -1,4 +1,5 @@
 from itertools import product
+from unicodedata import category
 from django.shortcuts import render
 from .models import Product, Customer , ProductTag , SaleOrder
 # Create your views here.
@@ -24,6 +25,9 @@ def home(request):
 
 def products(request):
     products = Product.objects.all()
+    for i in products:
+        product_tag = i.product_tag.all()
+        print("product_tag", product_tag)
     context = {
         'products': products
     }
@@ -139,8 +143,10 @@ def delete_order(request, order_id):
 
 def create_product(request):
     product_tag = ProductTag.objects.all()
+    products = Product.objects.all()
     context = {
-        'product_tag': product_tag
+        'product_tag': product_tag,
+        'products': products,
     }
     if request.method == 'POST':
         print("request.POST:", request.POST)
