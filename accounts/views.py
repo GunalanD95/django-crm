@@ -160,3 +160,7 @@ def create_product(request):
         # prod.save()
         return render(request, 'accounts/products.html') 
     return render(request, 'accounts/create_product.html',context)
+
+
+def update_product(request, product_id):
+    product_tag = ProductTag.objects.all()

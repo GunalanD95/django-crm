@@ -117,7 +117,7 @@
                             <td>
                                 <!-- <i class="far fa-eye"></i> -->
                                 <a href="{% url 'update_order' ord.id %}"><i class="far fa-edit"></i></a>
-                                <i class="far fa-trash-alt"></i>
+                                <a href="{% url 'delete_order' ord.id %}"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         {% endfor %}
