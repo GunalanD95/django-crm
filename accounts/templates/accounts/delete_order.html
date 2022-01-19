@@ -1,16 +1,49 @@
 {% extends 'accounts/layout.html'%}
 {% block content %}
 
+<style>
+    p{
+        font-size: 30px;
+    }
+    .delete-cont{
+        margin-top: 17rem;
+    width:700px;
+    margin-left: auto;
+    margin-right: auto;
+    }
 
+    input{
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .del-btn{
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        font-size: 20px;
+        cursor: pointer;      
+    }
+
+</style>
+
+<div class="delete-cont">
 <p>Are you sure you wanna delete this Sale Order  {{order.sale_order_referencenumber}} ?</p>
 
 
 <form action="{% url 'delete_order' order.id %}" class="delete-class" method="post">
     {% csrf_token %}
-    <a href="{% url 'home' %}">CANCEL</a>
-    <input type="submit" value="CONFIRM">
+    <a href="{% url 'home' %}" name="cancel"><button name="cancel" class="del-btn">CANCEL</button></a>
+    <input type="submit" name="confirm" value="CONFIRM">
 </form>
 
-
+</div>
 
 {% endblock %}

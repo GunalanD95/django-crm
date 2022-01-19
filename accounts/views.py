@@ -212,24 +212,13 @@ def update_product(request, product_id):
 def delete_order(request, order_id):
     order = SaleOrder.objects.get(id=order_id)
     if request.method == 'POST':
-        order = SaleOrder.objects.get(id=order_id)
-        order.delete()
-        return redirect('home')
-    # order = SaleOrder.objects.get(id=order_id)
-    # order.delete()
-    # orders = SaleOrder.objects.all()
-    # customers = Customer.objects.all()
-    # total_orders = orders.count()
-    # total_customers = customers.count()
-    # invoiced = SaleOrder.objects.filter(status='invoiced').count()
-    # context = {
-    #     'orders': orders,
-    #     'customers': customers,
-    #     'total_orders': total_orders,
-    #     'total_customers': total_customers,
-    #     'invoiced': invoiced,
-    #     'order': order,
-    # }
+        if "cancel" in request.POST:
+            print("request.POST:", request.POST)
+            return redirect('home')
+        else:
+            order = SaleOrder.objects.get(id=order_id)
+            order.delete()
+            return redirect('home')
     context = {
         'order': order,
     }
