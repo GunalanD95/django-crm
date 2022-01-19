@@ -18,11 +18,22 @@ from django.urls import path
 from django.urls.conf import include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import include, re_path
+from django.views.static import serve
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('',include("accounts.urls")), 
+# ]
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include("accounts.urls")), 
+    path('', include("accounts.urls")),
+
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
 
 
