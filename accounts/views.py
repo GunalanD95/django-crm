@@ -1,10 +1,12 @@
 from itertools import product
+from multiprocessing import context
 from unicodedata import category
 from django.shortcuts import render
 from .models import Product, Customer , ProductTag , SaleOrder
 # Create your views here.
 from .forms import OrderForm
 from django.db.models import Q
+from django.shortcuts import redirect
 
 
 def home(request):
@@ -209,5 +211,26 @@ def update_product(request, product_id):
 
 def delete_order(request, order_id):
     order = SaleOrder.objects.get(id=order_id)
-    order.delete()
-    return render(request, 'accounts/home.html')
+    if request.method == 'POST':
+        order = SaleOrder.objects.get(id=order_id)
+        order.delete()
+        return redirect('home')
+    # order = SaleOrder.objects.get(id=order_id)
+    # order.delete()
+    # orders = SaleOrder.objects.all()
+    # customers = Customer.objects.all()
+    # total_orders = orders.count()
+    # total_customers = customers.count()
+    # invoiced = SaleOrder.objects.filter(status='invoiced').count()
+    # context = {
+    #     'orders': orders,
+    #     'customers': customers,
+    #     'total_orders': total_orders,
+    #     'total_customers': total_customers,
+    #     'invoiced': invoiced,
+    #     'order': order,
+    # }
+    context = {
+        'order': order,
+    }
+    return render(request, 'accounts/delete_order.html',context)

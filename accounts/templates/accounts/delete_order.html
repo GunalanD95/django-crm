@@ -1,0 +1,16 @@
+{% extends 'accounts/layout.html'%}
+{% block content %}
+
+
+<p>Are you sure you wanna delete this Sale Order  {{order.sale_order_referencenumber}} ?</p>
+
+
+<form action="{% url 'delete_order' order.id %}" class="delete-class" method="post">
+    {% csrf_token %}
+    <a href="{% url 'home' %}">CANCEL</a>
+    <input type="submit" value="CONFIRM">
+</form>
+
+
+
+{% endblock %}
