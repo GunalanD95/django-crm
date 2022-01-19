@@ -34,7 +34,7 @@
                         {% endfor %}
                         <td>
                             <!-- <i class="far fa-eye"></i> -->
-                            <i class="far fa-edit"></i>
+                            <a href="{% url 'update_product' product.id %}"><i class="far fa-edit"></i></a>
                             <i class="far fa-trash-alt"></i>
                         </td>
                     </tr>

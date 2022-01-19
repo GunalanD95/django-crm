@@ -177,12 +177,34 @@ def create_product(request):
         p_tag = ProductTag.objects.get(id=request.POST.get('product_tag'))
         prod.product_tag.add(p_tag)
         # prod.save()
-        return render(request, 'accounts/products.html') 
+        return render(request, 'accounts/products.html',context) 
     return render(request, 'accounts/create_product.html',context)
 
 
 def update_product(request, product_id):
-    product_tag = ProductTag.objects.all()
+    product = Product.objects.get(id=product_id)
+    product_tag = ProductTag.objects.get(id=product.product_tag.all()[0].id)
+    product_tags = ProductTag.objects.filter(~Q(id=product_tag.id))
+    context = {
+        'product': product,
+        'product_tag': product_tag,
+        'product_tags': product_tags,
+    }
+    print("product_tag", product_tag)
+    if request.method == 'POST':
+        print("request.POST:", request.POST)
+        product = Product
+        product_name = request.POST.get('product_name')
+        product_price = request.POST.get('product_price')
+        product_description = request.POST.get('product_description')
+        prod = Product.objects.get(id=product_id)
+        prod.product_name=product_name
+        prod.product_price=product_price
+        prod.product_description=product_description
+        prod.save()
+        return render(request, 'accounts/products.html',context)
+
+    return render(request, 'accounts/update_product.html',context)
 
 
 def delete_order(request, order_id):
