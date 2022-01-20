@@ -203,11 +203,14 @@ def update_product(request, product_id):
         product_price = request.POST.get('product_price')
         product_description = request.POST.get('product_description')
         prod = Product.objects.get(id=product_id)
+        prod.product_tag.remove(product_tag)
         prod.product_name=product_name
         prod.product_price=product_price
         prod.product_description=product_description
+        p_tag = ProductTag.objects.get(id=request.POST.get('product_tag'))
+        prod.product_tag.add(p_tag)
         prod.save()
-        return render(request, 'accounts/products.html',context)
+        return redirect('products')
 
     return render(request, 'accounts/update_product.html',context)
 
