@@ -2,29 +2,45 @@
 
 
 {% block content %}
+<style>
+    [contenteditable] {
+      outline: 0px solid transparent;
+    }
+</style>
 
+<form action="#" method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
 <section>
     <div class="main">
-        <div class="cus-cards">
-
-            <div class="cus-card">
+        <div class="cus-cards12">
+            
+            <div class="cus-card12">
                 <div class="card-content">
                     <h3>Customer:</h3>
-                    <button class="bnx"><a href="">Confirm Changes</a></button>
+                    <button class="bnx"><a href="{% url 'update_customer' customer.id %}">Confirm Changes</a></button>
                     <button class="bnx"><a href="">Delete Customer</a></button>
                 </div>
             </div>
 
-            <div class="cus-card">
+            <div class="cus-card12">
                 <div class="card-content">
                     <h3>Contact Information:</h3>
-                    <p>Name:  <span contentEditable="true" style="text-align: right;">{{ customer.customer_name }}</span></p>
-                    <p>Email:  <span contentEditable="true" style="text-align: right;">{{ customer.customer_email }}</span></p>
-                    <p contentEditable="true" >Phone: {{ customer.customer_mobile }}</p>
+                    <!-- <p name="customer_name">Name:  <span contentEditable="true" name="customer_name" spellcheck="false" style="border:0px;font-weight:bolder;text-align: right;color:#C02F1D">{{ customer.customer_name }}</span></p>
+                    <p>Email:  <span contentEditable="true" name="customer_email" style="font-weight:bolder;text-align: right;color:#C02F1D">{{ customer.customer_email }}</span></p>
+                    <p>Phone:  <span contentEditable="true" name="customer_mobile" style="font-weight:bolder;text-align: right;color:#C02F1D">{{ customer.customer_mobile }}</span></p> -->
+                
+                    <p>Name:  <input type="text" name="customer_name" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_name }}" ></p>
+
+                    <p>Email:  <input type="text" name="customer_email" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_email }}" ></p>
+
+                    
+                    <p>Phone: <input type="text" name="customer_mobile" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_mobile }}" ></p>
+
+
                 </div>
             </div>
 
-            <div class="cus-card1">
+            <div class="cus-card122">
                 <div class="card-content">
                     <!-- <h3>Total Orders:</h3>
                     <h3>Total Orders:</h3> -->
@@ -76,7 +92,7 @@
             </div>
 
             
-
+        </form>
         </div>
         
     </div>

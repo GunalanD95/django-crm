@@ -277,14 +277,12 @@ def update_customer(request,customer_id):
         print("request.POST:", request.POST)
         customer = Customer
         customer_name = request.POST.get('customer_name')
-        customer_address = request.POST.get('customer_address')
         customer_phone = request.POST.get('customer_phone')
         customer_email = request.POST.get('customer_email')
         cust = Customer.objects.get(id=customer_id)
         cust.customer_name=customer_name
-        cust.customer_address=customer_address
         cust.customer_phone=customer_phone
         cust.customer_email=customer_email
         cust.save()
-        return render(request, 'accounts/customers.html',context) 
+        return redirect('customers') 
     return render(request, 'accounts/update_customer.html',context)
