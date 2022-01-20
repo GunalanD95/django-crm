@@ -104,7 +104,8 @@ def create_order(request):
         quantity = request.POST.get('sale_order_quantity')
         total_price = request.POST.get('sale_order_total_price')
         ref_no = request.POST.get('sale_order_referencenumber')
-        sale_order = SaleOrder(sale_order_referencenumber= ref_no,sale_order_customer=customer, sale_order_product=product, sale_order_quantity=quantity, sale_order_total_price=total_price)
+        status = request.POST.get('status')
+        sale_order = SaleOrder(sale_order_referencenumber= ref_no,sale_order_customer=customer, sale_order_product=product, sale_order_quantity=quantity, sale_order_total_price=total_price, status=status)
         sale_order.save()
         return render(request, 'accounts/home.html',context)
 
@@ -133,11 +134,13 @@ def update_order(request, order_id):
         quantity = request.POST.get('sale_order_quantity')
         total_price = request.POST.get('sale_order_total_price')
         ref_no = request.POST.get('sale_order_referencenumber')
+        status = request.POST.get('status')
         order.sale_order_referencenumber= ref_no
         order.sale_order_customer=customer
         order.sale_order_product=product
         order.sale_order_quantity=quantity
         order.sale_order_total_price=total_price
+        order.status=status
         order.save()
         customers = Customer.objects.all().order_by('id')
         products = Product.objects.all().order_by('id')
