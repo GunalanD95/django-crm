@@ -8,8 +8,8 @@
     }
 </style>
 
-<form action="#" method="POST" enctype='multipart/form-data'>
-    {% csrf_token %}
+<form method="POST" action="{% url 'update_customer' customer.id %}">
+    
 <section>
     <div class="main">
         <div class="cus-cards12">
@@ -25,16 +25,17 @@
             <div class="cus-card12">
                 <div class="card-content">
                     <h3>Contact Information:</h3>
+                    {% csrf_token %}
                     <!-- <p name="customer_name">Name:  <span contentEditable="true" name="customer_name" spellcheck="false" style="border:0px;font-weight:bolder;text-align: right;color:#C02F1D">{{ customer.customer_name }}</span></p>
                     <p>Email:  <span contentEditable="true" name="customer_email" style="font-weight:bolder;text-align: right;color:#C02F1D">{{ customer.customer_email }}</span></p>
                     <p>Phone:  <span contentEditable="true" name="customer_mobile" style="font-weight:bolder;text-align: right;color:#C02F1D">{{ customer.customer_mobile }}</span></p> -->
                 
-                    <p>Name:  <input type="text" name="customer_name" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_name }}" ></p>
+                    <p>Name:  <input type="text" name="customer_names" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_name }}" ></p>
 
-                    <p>Email:  <input type="text" name="customer_email" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_email }}" ></p>
+                    <p>Email:  <input type="text" name="customer_emails" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_email }}" ></p>
 
                     
-                    <p>Phone: <input type="text" name="customer_mobile" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_mobile }}" ></p>
+                    <p>Phone: <input type="text" name="customer_mobiles" style="font-weight:bolder;color:#C02F1D" value="{{ customer.customer_mobile }}" ></p>
 
 
                 </div>

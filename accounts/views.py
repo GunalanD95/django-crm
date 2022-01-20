@@ -264,25 +264,28 @@ def delete_customer(request,customer_id):
 
 
 def update_customer(request,customer_id):
-    customer = Customer.objects.get(id=customer_id)
-    saleorder = SaleOrder.objects.all()
-    orders = customer.saleorder_set.all() # this is the same as above
-    order_count = orders.count()
-    context = {
-        'customer': customer,
-        'order_count': order_count,
-        'orders': orders,
-    }
+
     if request.method == 'POST':
+        print("IN POST METHOD")
         print("request.POST:", request.POST)
-        customer = Customer
-        customer_name = request.POST.get('customer_name')
-        customer_phone = request.POST.get('customer_phone')
-        customer_email = request.POST.get('customer_email')
-        cust = Customer.objects.get(id=customer_id)
-        cust.customer_name=customer_name
-        cust.customer_phone=customer_phone
-        cust.customer_email=customer_email
-        cust.save()
-        return redirect('customers') 
-    return render(request, 'accounts/update_customer.html',context)
+        customer = Customer.objects.get(id=customer_id)
+        customer_name = request.POST.get('customer_names')
+        customer_phone = request.POST.get('customer_phones')
+        customer_email = request.POST.get('customer_emails')
+        customer.customer_name=customer_name
+        customer.customer_phone=customer_phone
+        customer.customer_email=customer_email
+        customer.save()
+        return redirect('customers')
+    elif request.method == 'GET':
+        print("IN GET METHOD")
+        customer = Customer.objects.get(id=customer_id)
+        saleorder = SaleOrder.objects.all()
+        orders = customer.saleorder_set.all() # this is the same as above
+        order_count = orders.count()
+        context = {
+            'customer': customer,
+            'order_count': order_count,
+            'orders': orders,
+        }
+        return render(request, 'accounts/update_customer.html',context)
