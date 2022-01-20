@@ -8,7 +8,7 @@
     }
 </style>
 
-<form method="POST" action="{% url 'update_customer' customer.id %}">
+<form method="POST" action="{% url 'update_customer' customer.id %}" name="update_customer">
     
 <section>
     <div class="main">
@@ -17,7 +17,8 @@
             <div class="cus-card12">
                 <div class="card-content">
                     <h3>Customer:</h3>
-                    <button class="bnx"><a href="{% url 'update_customer' customer.id %}">Confirm Changes</a></button>
+                    <!-- <button class="bnx"><a href="{% url 'update_customer' customer.id %}">Confirm Changes</a></button> -->
+                    <button class="bnxx"><input class="a" type="submit" value="Confirm Changes"></button>
                     <button class="bnx"><a href="">Delete Customer</a></button>
                 </div>
             </div>

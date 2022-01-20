@@ -396,6 +396,26 @@ td i {
 }
 
 
+.card-content .bnxx{
+    width: 100%;
+    padding: 5px 150px;
+    /* color: #ffff; */
+    background: teal;
+    cursor: pointer;
+
+}
+
+.card-content .bnxx .a{
+    font-weight: 600;
+    font-size: 12px;
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+
+
+
 .crt-ser{
     background: #fff;
     padding: 5px 5px;
