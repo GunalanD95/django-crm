@@ -10,8 +10,8 @@ from django.shortcuts import redirect
 
 
 def home(request):
-    orders = SaleOrder.objects.all()
-    customers = Customer.objects.all()
+    orders = SaleOrder.objects.all()[0:10]
+    customers = Customer.objects.all()[0:10]
     total_orders = orders.count()
     total_customers = customers.count()
     invoiced = SaleOrder.objects.filter(status='invoiced').count()
@@ -75,7 +75,14 @@ def create_customer(request):
         customer_pic = request.FILES['customer_pic']
         cus = Customer(customer_name=customer_name, customer_email=customer_email, customer_mobile=customer_mobile, customer_pic=customer_pic)
         cus.save()
-        return render(request, 'accounts/home.html') 
+        context = {
+                    'orders': orders,
+                    'customers': customers,
+                    'total_orders': total_orders,
+                    'total_customers': total_customers,
+                    'invoiced': invoiced
+                    }
+        return render(request, 'accounts/home.html',context)
     return render(request, 'accounts/create_customer.html')
 
 
@@ -108,6 +115,21 @@ def create_order(request):
         status = request.POST.get('status')
         sale_order = SaleOrder(sale_order_referencenumber= ref_no,sale_order_unit_price=sale_order_unit_price,sale_order_customer=customer, sale_order_product=product, sale_order_quantity=quantity, sale_order_total_price=total_price, status=status)
         sale_order.save()
+        customers = Customer.objects.all().order_by('id')
+        products = Product.objects.all().order_by('id')
+        orders = SaleOrder.objects.all()
+        customers = Customer.objects.all()
+        total_orders = orders.count()
+        total_customers = customers.count()
+        invoiced = SaleOrder.objects.filter(status='invoiced').count()
+        context = {
+            'orders': orders,
+            'customers': customers,
+            'total_orders': total_orders,
+            'total_customers': total_customers,
+            'invoiced': invoiced,
+            'products': products,
+        }
         return render(request, 'accounts/home.html',context)
 
     return render(request, 'accounts/create_order.html',context)
