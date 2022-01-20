@@ -5,12 +5,41 @@
 
 <section>
     <div class="main">
+        <div class="cus-cards">
 
-        <div class="product-tables">
+            <div class="cus-card">
+                <div class="card-content">
+                    <h3>Customer:</h3>
+                    <button class="bnx"><a href="">Confirm Changes</a></button>
+                    <button class="bnx"><a href="">Delete Customer</a></button>
+                </div>
+            </div>
+
+            <div class="cus-card">
+                <div class="card-content">
+                    <h3>Contact Information:</h3>
+                    <p>Name:  <span contentEditable="true" style="text-align: right;">{{ customer.customer_name }}</span></p>
+                    <p>Email:  <span contentEditable="true" style="text-align: right;">{{ customer.customer_email }}</span></p>
+                    <p contentEditable="true" >Phone: {{ customer.customer_mobile }}</p>
+                </div>
+            </div>
+
+            <div class="cus-card1">
+                <div class="card-content">
+                    <!-- <h3>Total Orders:</h3>
+                    <h3>Total Orders:</h3> -->
+                    <h3>Total Orders:</h3>
+                    <h1>{{order_count}}</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cus-prod-tables">
             <div class="button">
                 <button class="crt-ser"><a href="">Search</a></button>
             </div>
-            <div class="latest-products">
+            <div class="latest-cus-prod">
 
                 <table class="cus-prod-customers">
                     <thead>
@@ -36,8 +65,9 @@
                              <td>{{ ord.sale_order_total_price  }}</td>
                              <td>{{ ord.status  }}</td>
                             <td>
-                                <a href="{% url 'update_order' ord.id %}"><i class="far fa-edit"></i></a>
-                                <a href="{% url 'delete_order' ord.id %}"><i class="far fa-trash-alt"></i></a>
+                                <!-- <i class="far fa-eye"></i> -->
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-trash-alt"></i>
                             </td>
                         </tr>
                         {% endfor %}

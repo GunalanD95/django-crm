@@ -74,7 +74,7 @@
                             <td>
                                 <!-- <i class="far fa-eye"></i> -->
                                 <a href="{% url 'customer' cus.id %}"><i class="far fa-edit"></i></a>
-                                <i class="far fa-trash-alt"></i>
+                                <a href="{% url 'delete_customer' cus.id %}"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         {% endfor %}

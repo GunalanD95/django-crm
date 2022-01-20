@@ -223,3 +223,62 @@ def delete_order(request, order_id):
         'order': order,
     }
     return render(request, 'accounts/delete_order.html',context)
+
+
+def delete_product(request,product_id):
+    product = Product.objects.get(id=product_id)
+    if request.method == 'POST':
+        if "cancel" in request.POST:
+            print("request.POST:", request.POST)
+            return redirect('products')
+        else:
+            product = Product.objects.get(id=product_id)
+            product.delete()
+            return redirect('products')
+    context = {
+        'product': product,
+    }
+    return render(request, 'accounts/delete_product.html',context)
+
+
+def delete_customer(request,customer_id):
+    customer = Customer.objects.get(id=customer_id)
+    if request.method == 'POST':
+        if "cancel" in request.POST:
+            print("request.POST:", request.POST)
+            return redirect('customers')
+        else:
+            customer = Customer.objects.get(id=customer_id)
+            customer.delete()
+            return redirect('customers')
+    context = {
+        'customer': customer,
+    }
+    return render(request, 'accounts/delete_customer.html',context)
+
+
+def update_customer(request,customer_id):
+    customer = Customer.objects.get(id=customer_id)
+    saleorder = SaleOrder.objects.all()
+    orders = customer.saleorder_set.all() # this is the same as above
+    order_count = orders.count()
+    context = {
+        'customer': customer,
+        'order_count': order_count,
+        'orders': orders,
+    }
+    if request.method == 'POST':
+        print("request.POST:", request.POST)
+        customer = Customer
+        customer_name = request.POST.get('customer_name')
+        customer_address = request.POST.get('customer_address')
+        customer_phone = request.POST.get('customer_phone')
+        customer_email = request.POST.get('customer_email')
+        cust = Customer.objects.get(id=customer_id)
+        cust.customer_name=customer_name
+        cust.customer_address=customer_address
+        cust.customer_phone=customer_phone
+        cust.customer_email=customer_email
+        cust.save()
+        return render(request, 'accounts/customers.html',context) 
+    return render(request, 'accounts/update_customer.html',context)

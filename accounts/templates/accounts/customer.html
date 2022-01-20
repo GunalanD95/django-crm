@@ -10,8 +10,8 @@
             <div class="cus-card">
                 <div class="card-content">
                     <h3>Customer:</h3>
-                    <button class="bnx"><a href="">Update Customer</a></button>
-                    <button class="bnx"><a href="">Delete Customer</a></button>
+                    <button class="bnx"><a href="{% url 'update_customer' customer.id %}">Update Customer</a></button>
+                    <button class="bnx"><a href="{% url 'delete_customer' customer.id %}">Delete Customer</a></button>
                 </div>
             </div>
 
@@ -66,8 +66,8 @@
                              <td>{{ ord.status  }}</td>
                             <td>
                                 <!-- <i class="far fa-eye"></i> -->
-                                <i class="far fa-edit"></i>
-                                <i class="far fa-trash-alt"></i>
+                                <a href="{% url 'update_order' ord.id %}"><i class="far fa-edit"></i></a>
+                                <a href="{% url 'delete_order' ord.id %}"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         {% endfor %}
