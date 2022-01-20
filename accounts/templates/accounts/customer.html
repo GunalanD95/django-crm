@@ -12,6 +12,7 @@
                     <h3>Customer:</h3>
                     <button class="bnx"><a href="{% url 'update_customer' customer.id %}">Update Customer</a></button>
                     <button class="bnx"><a href="{% url 'delete_customer' customer.id %}">Delete Customer</a></button>
+                    <button class="bnx"><a href="{% url 'create_cu_order' customer.id %}">Place Order</a></button>
                 </div>
             </div>
 
@@ -48,6 +49,7 @@
                             <th>Customer</th>
                             <!-- <th>Date Ordered</th> -->
                             <th>Product</th>
+                            <th>Product Unit Price</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Status</th>
@@ -61,6 +63,7 @@
                              <td>{{ ord.sale_order_customer }}</td>
                              <!-- <td>{{ ord.sale_order_date }}</td> -->
                              <td>{{ ord.sale_order_product  }}</td>
+                             <td>{{ ord.sale_order_unit_price  }}</td>
                              <td>{{ ord.sale_order_quantity }}</td>
                              <td>{{ ord.sale_order_total_price  }}</td>
                              <td>{{ ord.status  }}</td>

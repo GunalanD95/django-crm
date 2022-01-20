@@ -26,10 +26,10 @@
               <div class="input-box">
                 <span class="details">Customer</span>
                 <select name="sale_order_customer">
-                  <option value="" selected>None</option>
-                  {% for cus in customers %}
+                  <option value="{{ customer.id }}" selected>{{ customer.customer_name }}</option>
+                  <!-- {% for cus in customers %}
                   <option value="{{ cus.id }}">{{ cus.customer_name }}</option>
-                  {% endfor %}
+                  {% endfor %} -->
                 </select>    
               </div>
 
@@ -46,11 +46,6 @@
               <div class="input-box">
                 <span class="details">Unit Price</span>
                 <input type="text" name="sale_order_unit_price" placeholder="Enter Unit Price" required>
-              </div>
-
-              <div class="input-box">
-                <span class="details">Unit Price</span>
-                <input type="text" name="sale_unit_price" placeholder="Enter Unit Price" required>
               </div>
 
               <div class="input-box">

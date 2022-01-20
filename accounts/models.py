@@ -57,6 +57,7 @@ class SaleOrder(models.Model):
     sale_order_product =  models.ForeignKey(Product, on_delete=models.SET_NULL, null= True)
     sale_order_quantity = models.IntegerField(null= True)
     sale_order_total_price = models.FloatField(null= True)
+    sale_order_unit_price = models.FloatField(null= True)
     status = models.CharField(max_length=200, null= True , choices=STATUS, default='quotation')
     sale_order_date = models.DateTimeField(auto_now_add=True , null= True)
 
