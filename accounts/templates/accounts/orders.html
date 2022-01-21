@@ -3,13 +3,31 @@
 
 {% block content %}
 
+<style>
+
+select{
+    display: block;
+  }
+
+  select:focus,
+  select:valid{
+    border-color: #9b59b6;
+  }
+
+</style>
+
+
 <section>
     <div class="main">
 
         <div class="product-tables">
-            <div class="button">
-                <button class="crt-ser"><a href="">Search</a></button>
-            </div>
+            <form action="" method="get">
+                {{filter.form}}
+                <div class="button">
+                    <button type="submit" class="crt-ser"><a href="">Search</a></button>
+                </div>
+            </form>
+
             <div class="latest-products">
 
                 <table class="cus-prod-customers">

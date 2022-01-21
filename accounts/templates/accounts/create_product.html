@@ -31,7 +31,7 @@
 
                 <div class="input-box">
                     <span class="reg-details">Product Category</span>
-                    <select name="product_tag">
+                    <select class="select" name="product_tag">
                       <option value="" selected>None</option>
                       {% for prod in product_tag %}
                       <option value="{{ prod.id }}" name="next">{{ prod.product_tag }}</option>

@@ -425,7 +425,7 @@ td i {
     margin-bottom: 20px;
     transition: 0.5s;
     background: darkcyan;
-    margin-right: 100px;
+    /* margin-right: 100px; */
 }
 
 
@@ -435,6 +435,30 @@ td i {
     font-size: 15px;
     font-weight: bolder;
 }
+
+
+.crt-ser1{
+    background: #fff;
+    padding: 5px 5px;
+    padding-left: 0px;
+    width: 20%;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    transition: 0.5s;
+    background: darkcyan;
+    margin-right: 100px;
+}
+
+
+.crt-ser1 a{
+    color: #ffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
 
 .button{
     margin: 1.7rem;
@@ -571,7 +595,7 @@ form .reg-submit input:hover{
 
 
 
-select{
+.select{
     height: 45px;
     width: 100%;
     outline: none;
@@ -583,8 +607,8 @@ select{
     transition: all 0.3s ease;
   }
 
-  select:focus,
-  select:valid{
+  .select:focus,
+  .select:valid{
     border-color: #9b59b6;
   }
 

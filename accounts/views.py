@@ -7,13 +7,16 @@ from .models import Product, Customer , ProductTag , SaleOrder
 from .forms import OrderForm
 from django.db.models import Q
 from django.shortcuts import redirect
+from .filters import OrderFilter
 
 
 def home(request):
     orders = SaleOrder.objects.all()[0:10]
+    tot_orders = SaleOrder.objects.all()
+    tot_cus = Customer.objects.all()
     customers = Customer.objects.all()[0:10]
-    total_orders = orders.count()
-    total_customers = customers.count()
+    total_orders = tot_orders.count()
+    total_customers = tot_cus.count()
     invoiced = SaleOrder.objects.filter(status='invoiced').count()
     context = {
         'orders': orders,
@@ -59,8 +62,11 @@ def customer(request, customer_id):
 
 def total_orders(request):
     orders = SaleOrder.objects.all()
+    my_filter = OrderFilter(request.GET,queryset=orders)
+    orders = my_filter.qs
     context = {
-        'orders': orders
+        'orders': orders,
+        'filter': my_filter,
     }
     return render(request, 'accounts/orders.html',context)
 
@@ -75,13 +81,21 @@ def create_customer(request):
         customer_pic = request.FILES['customer_pic']
         cus = Customer(customer_name=customer_name, customer_email=customer_email, customer_mobile=customer_mobile, customer_pic=customer_pic)
         cus.save()
+        customers = Customer.objects.all().order_by('id')
+        products = Product.objects.all().order_by('id')
+        orders = SaleOrder.objects.all()
+        customers = Customer.objects.all()
+        total_orders = orders.count()
+        total_customers = customers.count()
+        invoiced = SaleOrder.objects.filter(status='invoiced').count()
         context = {
-                    'orders': orders,
-                    'customers': customers,
-                    'total_orders': total_orders,
-                    'total_customers': total_customers,
-                    'invoiced': invoiced
-                    }
+            'orders': orders,
+            'customers': customers,
+            'total_orders': total_orders,
+            'total_customers': total_customers,
+            'invoiced': invoiced,
+            'products': products,
+        }
         return render(request, 'accounts/home.html',context)
     return render(request, 'accounts/create_customer.html')
 

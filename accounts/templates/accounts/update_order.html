@@ -24,7 +24,7 @@
 
               <div class="input-box">
                 <span class="details">Customer</span>
-                <select name="sale_order_customer">
+                <select class="select" name="sale_order_customer">
                   {% if customer %}
                   <option value="{{ customer.id }}" selected>{{ customer.customer_name }}</option>
                   {% else %}
@@ -38,7 +38,7 @@
 
               <div class="input-box">
                 <span class="details">Product</span>
-                <select name="sale_order_product">
+                <select class="select" name="sale_order_product">
                   {% if product %}
                   <option value="{{ product.id }}" selected>{{ product.product_name }}</option>
                   {% else %}
@@ -67,7 +67,7 @@
 
               <div class="input-box">
                 <span class="details">Status</span>
-                <select name="status">
+                <select class="select" name="status">
                   <option value="quotation">Quotation</option>
                   <option value="ordered">Ordered</option>
                   <option value="pending">Pending</option>

@@ -31,7 +31,7 @@
 
                 <div class="input-box">
                     <span class="reg-details">Product Category</span>
-                    <select name="product_tag">
+                    <select class="select" name="product_tag">
                       <option value="{{ product_tag }}" name="next" selected>{{ product_tag.product_tag }}</option>
                         {% for tag in product_tags.all %}
                         <option value="{{ tag.id }}">{{ tag.product_tag }}</option>

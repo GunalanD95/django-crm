@@ -109,7 +109,7 @@ form .input-box span.details{
 
 
 
-  select{
+  .select{
     height: 45px;
     width: 100%;
     outline: none;
@@ -121,7 +121,7 @@ form .input-box span.details{
     transition: all 0.3s ease;
   }
 
-  select:focus,
-  select:valid{
+  .select:focus,
+  .select:valid{
     border-color: #9b59b6;
   }
