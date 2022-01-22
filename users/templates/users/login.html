@@ -22,7 +22,7 @@
               <li><a  href="{% url 'products' %}">PRODUCTS</a></li>
               <li><a  href="{% url 'customers' %}">CUSTOMERS</a></li>
               <li><a  href="{% url 'orders' %}">ORDERS</a></li>
-              <li><a  href="{% url 'orders' %}">LOGIN</a></li>
+              <li><a  href="{% url 'orders' %}">ACCOUNT</a></li>
           </ul>  
         </nav>
     </div>
@@ -30,11 +30,58 @@
 
 
     <!-- MAIN CONTENT -->
-    <article>
+    <!-- <article>
         {% block content %}
 
         {% endblock %}
-    </article>
+    </article> -->
+
+
+<!-- ACCOUNT PAGE -->
+
+        <div class="account-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="{% static 'images/demon-slayer-1.png' %}" width="100%" style="background-color: radial-gradient(#fff,#ffd6d6)" alt="naruto-bg" >
+                    </div>
+
+                    <div class="col-2">
+                        <div class="form-container">
+                            <div class="form-btn">
+                                <span onclick="login()">Login</span>
+                                <span onclick="reg()">Register</span>
+                                <hr id="Indicator">
+                            </div>
+
+                            <form action="#" method="POST" id="login-form">
+                                <input type="text" name="" id="" placeholder="Username">
+                                <input type="password" name="" id="" placeholder="Password">
+                                <button class="btn-sub" type="submit">SUBMIT</button>
+
+                                <a href="">Forgot Password</a>
+                            </form>
+
+
+                            <form action="#" method="POST" id="reg-form">
+                                <input type="text" name="" id="" placeholder="Username">
+                                <input type="email" name="" id="" placeholder="Email">
+                                <input type="password" name="" id="" placeholder="Password">
+                                <input type="re-password" name="" id="" placeholder="Re Enter Password">
+                                <button class="btn-sub" type="submit">REGISTER</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+<!-- ACCOUNT ENDS -->
+
+
 
 
 
@@ -61,5 +108,29 @@
 
 
     </div>
+
+
+    <script>
+        // JS FOR TOGGLE FORM
+
+        var LoginForm = document.getElementById('login-form');
+        var RegForm = document.getElementById('reg-form');
+        var Indicator = document.getElementById('Indicator');
+
+
+        function reg(){
+            RegForm.style.transform = "translateX(0px)";
+            LoginForm.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+
+        function login(){
+            RegForm.style.transform = "translateX(300px)";
+            LoginForm.style.transform = "translateX(300px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+    </script>
+
+
 </body>
 </html>
