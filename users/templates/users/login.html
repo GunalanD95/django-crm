@@ -54,12 +54,12 @@
                                 <hr id="Indicator">
                             </div>
 
-                            <form action="#" method="POST" id="login-form">
+                            <form action="" enctype='multipart/form-data'  method="POST" id="login-form">
                                 {% csrf_token %}
-                                <input type="text" name="" id="" placeholder="Username">
-                                <input type="password" name="" id="" placeholder="Password">
+                                <input type="text" name="username" id="username" placeholder="Username">
+                                <input type="password" name="password" id="password" placeholder="Password">
                                 <!-- <button class="btn-sub" type="submit">SUBMIT</button> -->
-                                <input class="btn-sub" type="submit" value="SUBMIT">
+                                <input class="btn-sub" name="login" type="submit" value="SUBMIT">
 
                                 <a href="">Forgot Password</a>
                             </form>
@@ -73,7 +73,7 @@
                                     <input class="form-control" type="password" name="password1" id="password1" placeholder="Password">
                                     <input class="form-control" type="re-password" name="password2" id="password2" placeholder="Re Enter Password">
                                     <!-- <button class="btn-sub" type="submit">REGISTER</button> -->
-                                    <input class="btn-sub" type="submit" value="REGISTER">
+                                    <input class="btn-sub" name="register" type="submit" value="REGISTER">
                                     </div>
                                     {{ form.errors }}
                                     {{ form.non_field_errors }}
