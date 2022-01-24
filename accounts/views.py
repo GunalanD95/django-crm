@@ -8,8 +8,7 @@ from .forms import OrderForm
 from django.db.models import Q
 from django.shortcuts import redirect
 from .filters import OrderFilter
-from .decorators import unauthenticated_user, allowed_users
-
+from .decorators import unauthenticated_user, allowed_users , admin_only
 
 
 def home(request):
@@ -29,7 +28,6 @@ def home(request):
     }
     return render(request, 'accounts/home.html',context)
 
-@allowed_users(allowed_roles=['admin'])
 def products(request):
     products = Product.objects.all()
     for i in products:
@@ -47,7 +45,6 @@ def customers(request):
     }
     return render(request, 'accounts/customers.html',context)
 
-
 def customer(request, customer_id):
     customer = Customer.objects.get(id=customer_id)
     #saleorder_set = SaleOrder.objects.filter(sale_order_customer=customer)
@@ -61,7 +58,6 @@ def customer(request, customer_id):
     }
     return render(request, 'accounts/customer.html',context)
 
-
 def total_orders(request):
     orders = SaleOrder.objects.all()
     my_filter = OrderFilter(request.GET,queryset=orders)
@@ -72,6 +68,10 @@ def total_orders(request):
     }
     return render(request, 'accounts/orders.html',context)
 
+
+
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def create_customer(request):
 
     if request.method == 'POST':
@@ -101,7 +101,8 @@ def create_customer(request):
         return render(request, 'accounts/home.html',context)
     return render(request, 'accounts/create_customer.html')
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def create_order(request):
     customers = Customer.objects.all().order_by('id')
     products = Product.objects.all().order_by('id')
@@ -150,6 +151,9 @@ def create_order(request):
 
     return render(request, 'accounts/create_order.html',context)
 
+
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def update_order(request, order_id):
     order = SaleOrder.objects.get(id=order_id)
     customer = Customer.objects.get(id=order.sale_order_customer.id)
@@ -205,7 +209,8 @@ def update_order(request, order_id):
 
 
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def create_product(request):
     product_tag = ProductTag.objects.all()
     products = Product.objects.all()
@@ -226,7 +231,8 @@ def create_product(request):
         return render(request, 'accounts/products.html',context) 
     return render(request, 'accounts/create_product.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def update_product(request, product_id):
     product = Product.objects.get(id=product_id)
     product_tag = ProductTag.objects.get(id=product.product_tag.all()[0].id)
@@ -255,7 +261,8 @@ def update_product(request, product_id):
 
     return render(request, 'accounts/update_product.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def delete_order(request, order_id):
     order = SaleOrder.objects.get(id=order_id)
     if request.method == 'POST':
@@ -271,7 +278,8 @@ def delete_order(request, order_id):
     }
     return render(request, 'accounts/delete_order.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def delete_product(request,product_id):
     product = Product.objects.get(id=product_id)
     if request.method == 'POST':
@@ -287,7 +295,8 @@ def delete_product(request,product_id):
     }
     return render(request, 'accounts/delete_product.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def delete_customer(request,customer_id):
     customer = Customer.objects.get(id=customer_id)
     if request.method == 'POST':
@@ -303,7 +312,8 @@ def delete_customer(request,customer_id):
     }
     return render(request, 'accounts/delete_customer.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def update_customer(request,customer_id):
 
     if request.method == 'POST':
@@ -331,7 +341,8 @@ def update_customer(request,customer_id):
         }
         return render(request, 'accounts/update_customer.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
+@admin_only
 def create_cu_order(request,customer_id):
     customer = Customer.objects.get(pk=customer_id)
     products = Product.objects.all()

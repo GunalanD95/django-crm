@@ -41,7 +41,6 @@ def index(request):
                 messages.error(request,"Invalid username or password.")
     return render(request,'users/login.html',{'form':form})
 
-@unauthenticated_user
 def logout_view(request):
     logout(request)
     return redirect('/')
