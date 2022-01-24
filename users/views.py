@@ -7,6 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm #add this
 from django.contrib.auth import login, authenticate #add this
 from django.contrib.auth import logout
 from .decorators import unauthenticated_user
+from django.contrib.auth.models import Group
 # Create your views here.
 
 @unauthenticated_user
@@ -19,6 +20,10 @@ def index(request):
             if form.is_valid():
                 print("VALID REG")
                 user = form.save()
+                username = form.cleaned_data.get('username')
+                messages.success(request, f"New account created: {username}")
+                group = Group.objects.get(name='customer')
+                user.groups.add(group)
                 login(request,user)
                 messages.success(request,'You have been registered')
                 return redirect('/')
@@ -43,4 +48,4 @@ def index(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('/')
+    return redirect('login')
