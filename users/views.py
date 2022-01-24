@@ -2,13 +2,18 @@ from django.shortcuts import  render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from django.template import context
-from .forms import NewUserForm
-from django.contrib.auth.forms import AuthenticationForm #add this
-from django.contrib.auth import login, authenticate #add this
+from .forms import NewUserForm , ContactForm
+from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth import login, authenticate 
 from django.contrib.auth import logout
 from .decorators import unauthenticated_user
 from django.contrib.auth.models import Group
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 # Create your views here.
+
+from django.conf import settings
+
 
 @unauthenticated_user
 def index(request):
@@ -49,3 +54,24 @@ def index(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = "Website Inquiry"
+            body = {
+                'first_name': form.cleaned_data['first_name'],
+                'last_name': form.cleaned_data['last_name'],
+                'email': form.cleaned_data['email'], 
+			    'message':form.cleaned_data['message'], 
+            }
+            message = "\n".join(body.values())
+
+            try:
+                send_mail(subject,message,settings.EMAIL_HOST_USER,['guna19may2015@gmail.com'],fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('/')
+    form = ContactForm()
+    return render(request,'users/contact.html',{'form':form})
