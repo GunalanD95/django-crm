@@ -1,21 +1,79 @@
 {% extends 'accounts/layout.html'%}
-
+{% load static %}
 
 {% block content %}
 
+<style>
+    .cont-air{
+        display: flex;
+    }
+    .form-contact{
+        /* margin-left: 50px; */
+        margin-top: 10px;
+        display: grid;
+        width: 700px;
+        gap:20px;
+    }
+    .form-contact input{
+        padding: 5px 20px;
+    }
+    .form-contact textarea{
+        padding: 5px 20px;
+    }
 
-<div style="margin:80px">
-    <h1>Contact</h1>
-    <h4>Contact us directly if you have any questions</h4>
-    <p>
-        Please write your name, email address and a message below if you have any questions.
-        One of our staff members will be happy to contact you directly and answer your questions as soon as possible. 
-    </p>
-    <form method="POST" enctype='multipart/form-data'>
-    {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
+    button{
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        background-color: #df1f1f;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: darkblue;
+        color: #fff;
+    }
+
+    .img-cont{
+        width: 100%;
+        /* background:red; */
+        width: 700px;
+    }
+    .img-cont img{
+        margin-top: 120px;
+        padding-right: 500px;
+    }
+</style>
+
+
+<div class="cont-air">
+
+        <div style="margin:80px;width: 700px;">
+            <h4>Contact us directly if you have any questions</h4>
+            <p>
+                Please write your name, email address and a message below if you have any questions.
+                One of our staff members will be happy to contact you directly and answer your questions as soon as possible. 
+            </p>
+            <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+                <div class="form-contact">
+                <!-- {{form.as_p}} -->
+                <input type="text" name="first_name" id="first_name" placeholder="First Name">
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+                <input type="email" name="email" id="email" placeholder="tanjiro@gmail.com">
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                <button type="submit">Submit</button>
+            </div>
+            </form>
+        </div>
+
+        <div class="img-cont">
+            <img src="{% static 'images/haiyuku.png' %}" alt="Haiyuku">
+        </div>
+
 </div>
 
 
