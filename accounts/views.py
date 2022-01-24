@@ -12,7 +12,7 @@ from .decorators import unauthenticated_user, allowed_users , admin_only
 
 
 # @unauthenticated_user
-@admin_only
+# @admin_only
 def home(request):
     orders = SaleOrder.objects.all()[0:10]
     tot_orders = SaleOrder.objects.all()
