@@ -8,6 +8,8 @@ from .forms import OrderForm
 from django.db.models import Q
 from django.shortcuts import redirect
 from .filters import OrderFilter
+from .decorators import unauthenticated_user, allowed_users
+
 
 
 def home(request):
@@ -27,7 +29,7 @@ def home(request):
     }
     return render(request, 'accounts/home.html',context)
 
-
+@allowed_users(allowed_roles=['admin'])
 def products(request):
     products = Product.objects.all()
     for i in products:
