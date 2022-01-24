@@ -20,4 +20,5 @@ urlpatterns = [
     path('delete_customer/<int:customer_id>/', views.delete_customer, name='delete_customer'),
     path('edit/<int:customer_id>/', views.update_customer, name='update_customer'),
     path('<int:customer_id>/create_cu_order/', views.create_cu_order, name='create_cu_order'),
+    path('user/',views.userPage, name='userPage'),
 ]

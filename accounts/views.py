@@ -349,3 +349,10 @@ def create_cu_order(request,customer_id):
         'products': products,
     }
     return render(request, 'accounts/customer_order.html',context) 
+
+
+def userPage(request):
+    context = {
+
+    }
+    return render(request,'users/user.html',context)
