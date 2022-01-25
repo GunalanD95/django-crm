@@ -76,7 +76,6 @@ def total_orders(request):
 @allowed_users(allowed_roles=['admin'])
 @admin_only
 def create_customer(request):
-
     if request.method == 'POST':
         print("request.POST:", request.POST)
         customer = Customer
@@ -106,6 +105,7 @@ def create_customer(request):
 
 # @allowed_users(allowed_roles=['admin'])
 def create_order(request):
+    customer_user = request.user.id
     customers = Customer.objects.all().order_by('id')
     products = Product.objects.all().order_by('id')
     orders = SaleOrder.objects.all()

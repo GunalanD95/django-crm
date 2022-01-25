@@ -2,6 +2,8 @@ from django.shortcuts import  render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from django.template import context
+
+from accounts.views import customer
 from .forms import NewUserForm , ContactForm
 from django.contrib.auth.forms import AuthenticationForm 
 from django.contrib.auth import login, authenticate 
@@ -13,7 +15,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 from django.conf import settings
-
+from accounts.models import Customer
 
 @unauthenticated_user
 def index(request):
@@ -29,6 +31,7 @@ def index(request):
                 messages.success(request, f"New account created: {username}")
                 group = Group.objects.get(name='customer')
                 user.groups.add(group)
+                Customer.objects.create(customer_user=user)
                 login(request,user)
                 messages.success(request,'You have been registered')
                 return redirect('/')
