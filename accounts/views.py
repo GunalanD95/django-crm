@@ -104,7 +104,7 @@ def create_customer(request):
         return render(request, 'accounts/home.html',context)
     return render(request, 'accounts/create_customer.html')
 
-@allowed_users(allowed_roles=['admin'])
+# @allowed_users(allowed_roles=['admin'])
 def create_order(request):
     customers = Customer.objects.all().order_by('id')
     products = Product.objects.all().order_by('id')
@@ -149,7 +149,7 @@ def create_order(request):
             'invoiced': invoiced,
             'products': products,
         }
-        return render(request, 'accounts/home.html',context)
+        return redirect('/')
 
     return render(request, 'accounts/create_order.html',context)
 
@@ -203,7 +203,7 @@ def update_order(request, order_id):
             'invoiced': invoiced,
             'products': products,
         }
-        return render(request, 'accounts/home.html',context)
+        return redirect('/')
 
     return render(request, 'accounts/update_order.html',context)
 
@@ -361,16 +361,20 @@ def create_cu_order(request,customer_id):
 @allowed_users(allowed_roles=['customer'])
 def userPage(request):
     customer_user = request.user.id
-    customer = Customer.objects.get(id=customer_user)
+    customer = Customer.objects.get(customer_user=customer_user)
     orders = customer.saleorder_set.all()[0:10]
     tot_orders = customer.saleorder_set.all()
     total_orders = tot_orders.count()
-    invoiced = SaleOrder.objects.filter(status='invoiced').count()
+    invoiced = tot_orders.filter(status='invoiced').count()
+    delivered = tot_orders.filter(status='delivered').count()
+    print("customer",customer)
+    print("orders",orders)
 
     context = {
         'customer': customer,
         'orders': orders,
         'total_orders': total_orders,
         'invoiced': invoiced,
+        'delivered': delivered,
     }
-    return render(request,'users/user.html',context)
+    return render(request,'accounts/user.html',context)

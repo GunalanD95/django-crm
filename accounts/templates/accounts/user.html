@@ -1,0 +1,90 @@
+{% extends 'accounts/layout.html'%}
+
+
+{% block content %}
+
+<section>
+    <div class="main">
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">{{total_orders}}</div>
+                    <div class="card-name">Orders</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">{{invoiced}}</div>
+                    <div class="card-name">Invoiced</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">{{delivered}}</div>
+                    <div class="card-name">Delivered</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="product-tables">
+            <div class="latest-products">
+                <div class="button">
+                    <button class="crt-ser"><a href="{% url 'create_order' %}">CREATE ORDER</a></button>
+                </div>
+                <div class="heading">
+                    <h2>Orders</h2>
+                    <a href="{% url 'orders' %}"class="btn">View All</a>
+                </div>
+
+                <table class="products">
+                    <thead>
+                        <tr>
+                            <th>REF No.</th>
+                            <th>Customer</th>
+                            <!-- <th>Date Ordered</th> -->
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ord in orders %}
+                        <tr>
+                             <td>{{ ord.sale_order_referencenumber  }}</td>
+                             <td>{{ ord.sale_order_customer }}</td>
+                             <!-- <td>{{ ord.sale_order_date }}</td> -->
+                             <td>{{ ord.sale_order_product  }}</td>
+                             <td>{{ ord.sale_order_quantity }}</td>
+                             <td>{{ ord.sale_order_total_price  }}</td>
+                             <td>{{ ord.status  }}</td>
+                            <td>
+                                <!-- <i class="far fa-eye"></i> -->
+                                <a href="{% url 'update_order' ord.id %}"><i class="far fa-edit"></i></a>
+                                <a href="{% url 'delete_order' ord.id %}"><i class="far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        
+    </div>
+</section>
+
+{% endblock %}
