@@ -12,7 +12,7 @@ from .decorators import unauthenticated_user, allowed_users , admin_only
 
 
 # @unauthenticated_user
-# @admin_only
+@admin_only
 def home(request):
     orders = SaleOrder.objects.all()[0:10]
     tot_orders = SaleOrder.objects.all()
@@ -358,8 +358,19 @@ def create_cu_order(request,customer_id):
     return render(request, 'accounts/customer_order.html',context) 
 
 
+@allowed_users(allowed_roles=['customer'])
 def userPage(request):
-    context = {
+    customer_user = request.user.id
+    customer = Customer.objects.get(id=customer_user)
+    orders = customer.saleorder_set.all()[0:10]
+    tot_orders = customer.saleorder_set.all()
+    total_orders = tot_orders.count()
+    invoiced = SaleOrder.objects.filter(status='invoiced').count()
 
+    context = {
+        'customer': customer,
+        'orders': orders,
+        'total_orders': total_orders,
+        'invoiced': invoiced,
     }
     return render(request,'users/user.html',context)
