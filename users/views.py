@@ -2,7 +2,7 @@ from django.shortcuts import  render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from django.template import context
-from .forms import NewUserForm , ContactForm
+from .forms import NewUserForm , ContactForm , CustomerForm
 from django.contrib.auth.forms import AuthenticationForm 
 from django.contrib.auth import login, authenticate 
 from django.contrib.auth import logout
@@ -78,4 +78,32 @@ def contact(request):
 
 
 def account(request):
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            user = request.user.customer
+            context = {
+                'user':user,
+            }
+            return render(request,'users/account.html' , context)
+        elif request.method == 'POST':
+            print("request.POST:", request.POST)
+            customer_name = request.POST.get('customer_name')
+            customer_email = request.POST.get('email')
+            customer_mobile = request.POST.get('number')
+            address = request.POST.get('address')
+            city = request.POST.get('acc-city')
+            state = request.POST.get('acc-state')
+            zipcode = request.POST.get('acc-zip')
+            country = request.POST.get('acc-country')
+            user = request.user.customer
+            user.customer_name = customer_name
+            user.customer_email = customer_email
+            user.customer_mobile = customer_mobile
+            user.address = address
+            user.city = city
+            user.state = state
+            user.zipcode = zipcode
+            user.country = country
+            user.save()
+            return redirect('account')
     return render(request,'users/account.html')

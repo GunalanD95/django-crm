@@ -8,13 +8,18 @@ from django.contrib.auth.models import User
 
 
 class Customer(models.Model):
-    # customer_user = models.OneToOneField(User, on_delete=models.SET_NULL, null= True)
-    customer_user =  models.ForeignKey(User, on_delete=models.SET_NULL, null= True)
+    customer_user = models.OneToOneField(User, on_delete=models.SET_NULL, null= True)
+    # customer_user =  models.ForeignKey(User, on_delete=models.SET_NULL, null= True)
     customer_pic = models.ImageField(upload_to='customer_pics/', blank=True)
     customer_name = models.CharField(max_length=50, null= True)
     customer_email = models.CharField(max_length=200 , null= True)
     customer_mobile = models.CharField(max_length=50 , null= True)
     date_created = models.DateTimeField(auto_now_add=True , null= True)
+    address = models.CharField(max_length=200, null= True)
+    city = models.CharField(max_length=50, null= True)
+    state = models.CharField(max_length=50, null= True)
+    zipcode = models.CharField(max_length=50, null= True)
+    country = models.CharField(max_length=50, null= True)
 
 
     def __str__(self):

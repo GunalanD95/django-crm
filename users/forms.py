@@ -1,6 +1,9 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+from accounts.models import Customer
 
 
 class NewUserForm(UserCreationForm):
@@ -22,3 +25,9 @@ class ContactForm(forms.Form):
     last_name = forms.CharField(max_length=100, required=True)
     email = forms.EmailField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
+
+class CustomerForm(ModelForm):
+    class Meta:
+        model = Customer
+        fields = '__all__'
+        exclude = ['customer_user']

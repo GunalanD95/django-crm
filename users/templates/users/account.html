@@ -96,7 +96,8 @@ button:hover{
 </style>
 
 
-
+<form method="POST" action="#" name="update_customer">
+    {% csrf_token %}
     <div class="main-contane">
         <div class="acc-cont">
 
@@ -107,56 +108,58 @@ button:hover{
                     <span>ACCOUNT SETTINGS</span>
                     <i class="fa fa-user" aria-hidden="true"></i>
 
+                    <img src="{{user.customer_pic.url}}" style="width:44px;" alt="">
+
                 </div>
  
                 <div class="acc-card2">
-                    <h2>EDIT PROFILE</h2>
+                    <h2 style="margin-bottom:4px;text-align: center;border-bottom: 2px solid blanchedalmond;">EDIT USER PROFILE</h2>
                     <div class="user-names">
-                        <label for="username">Name</label>
-                        <input style="text-align: right;" name="username" type="text">
+                        <label for="customer_name">Name</label>
+                        <input name="customer_name" value="{{ user.customer_name }}" type="text">
                     </div>
 
                     <div class="user-email">
                         <label for="email">Email</label>
-                        <input  style="text-align: right;" name="email" type="email">
+                        <input name="email" type="email" value="{{ user.customer_email }}" >
                     </div>
 
                     <div class="user-number">
                         <label for="number">Phone Number</label>
-                        <input name="number" type="number">
+                        <input name="number" type="number" value="{{ user.customer_mobile }}">
                     </div>
 
 
                     <div class="user-address">
                         <label for="address">Address</label>
-                        <input name="address" type="text">
+                        <input name="address" type="text" value="{{ user.address }}">
                     </div>
 
                     <div class="user-loc">
                         <div>
                         <label for="acc-city">City</label>
-                        <input name="acc-city" type="text">
+                        <input name="acc-city" type="text" value="{{ user.city }}">
                         </div>
 
                         <div>
                         <label for="acc-state">State</label>
-                        <input name="acc-state" type="text">
+                        <input name="acc-state" type="text" value="{{ user.state }}">
                         </div>
 
                         <div>
                         <label for="acc-zip">Zip</label>
-                        <input name="acc-zip" type="text">
+                        <input name="acc-zip" type="text" value="{{ user.zipcode }}">
                         </div>
 
                         <div>
                         <label for="acc-country">Country</label>
-                        <input name="acc-country" type="text">
+                        <input name="acc-country" type="text" value="{{ user.country }}">
                         </div>
                     </div>
 
                     <div class="acc-pwd">
                         <label for="acc-password">Password</label>
-                        <input type="password">
+                        <input type="password" value="{{ user.password }}">
                     </div>
 
 
@@ -171,5 +174,5 @@ button:hover{
         
     </div>
 
-
+</form>
 {% endblock %}
