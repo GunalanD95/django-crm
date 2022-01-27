@@ -27,9 +27,11 @@
     padding: 20px;
     margin: 20px;
     display: grid;
-    background: #34568B;
+    background: #009B77;
     color: #ffff;
     width: 920px;
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .bck-home{
@@ -59,6 +61,20 @@
     font-size: 8rem;
 }
 
+.acc-sub{
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    background: #55B4B0;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+button:hover{
+    background: linear-gradient(45deg,#47cebe,#2f80ed);
+    color: #ffff;
+    cursor: pointer;
+}
 
 .acc-card2{
     margin-top: 20px;
@@ -70,7 +86,7 @@
 
 .user-loc{
     display: grid;
-    grid-template-columns: repeat(4, 2fr);
+    grid-template-columns: repeat(2, 2fr);
     gap: 10px;  
 }
 
@@ -97,12 +113,12 @@
                     <h2>EDIT PROFILE</h2>
                     <div class="user-names">
                         <label for="username">Name</label>
-                        <input name="username" type="text">
+                        <input style="text-align: right;" name="username" type="text">
                     </div>
 
                     <div class="user-email">
                         <label for="email">Email</label>
-                        <input name="email" type="email">
+                        <input  style="text-align: right;" name="email" type="email">
                     </div>
 
                     <div class="user-number">
@@ -117,17 +133,25 @@
                     </div>
 
                     <div class="user-loc">
+                        <div>
                         <label for="acc-city">City</label>
                         <input name="acc-city" type="text">
+                        </div>
 
+                        <div>
                         <label for="acc-state">State</label>
                         <input name="acc-state" type="text">
+                        </div>
 
+                        <div>
                         <label for="acc-zip">Zip</label>
                         <input name="acc-zip" type="text">
+                        </div>
 
+                        <div>
                         <label for="acc-country">Country</label>
                         <input name="acc-country" type="text">
+                        </div>
                     </div>
 
                     <div class="acc-pwd">
@@ -136,7 +160,7 @@
                     </div>
 
 
-                    <button type="submit">SUBMIT</button>
+                    <button class="acc-sub" type="submit">SUBMIT</button>
                     
                 </div>  
 
