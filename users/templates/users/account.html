@@ -1,0 +1,151 @@
+{% extends 'accounts/layout.html'%}
+{% load static %}
+
+{% block content %}
+
+<style>
+    /* ACCOUNT PAGE STYLES */
+
+.cards-acc{
+    display: grid;
+    grid-template-columns: 500px 500px;
+}
+
+.acc-card1{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: grid;
+    background: #34568B;
+    color: #ffff;
+    height: 50vh;
+}
+
+
+.acc-card2{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: grid;
+    background: #34568B;
+    color: #ffff;
+    width: 920px;
+}
+
+.bck-home{
+    width: 100%;
+    padding:8px;
+    background-color: #4CAF50;
+    font-size: 20px;
+    color: #ffff;
+    font-weight: bolder;
+}
+
+.acc-card1 span{
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.fa-user{
+    padding: 20px;
+    margin-top: 10px;
+    color: #ffff;
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    font-size: 8rem;
+}
+
+
+.acc-card2{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 2fr; */
+    gap: 30px 20px;
+}
+
+.user-loc{
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 10px;  
+}
+
+
+
+/* ACCOUNT PAGE STYLE ENDS */
+</style>
+
+
+
+    <div class="main-contane">
+        <div class="acc-cont">
+
+            <div class="cards-acc">
+
+                <div class="acc-card1">
+                    <a href=""><button class="bck-home">Back to Home</button></a>
+                    <span>ACCOUNT SETTINGS</span>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+
+                </div>
+ 
+                <div class="acc-card2">
+                    <h2>EDIT PROFILE</h2>
+                    <div class="user-names">
+                        <label for="username">Name</label>
+                        <input name="username" type="text">
+                    </div>
+
+                    <div class="user-email">
+                        <label for="email">Email</label>
+                        <input name="email" type="email">
+                    </div>
+
+                    <div class="user-number">
+                        <label for="number">Phone Number</label>
+                        <input name="number" type="number">
+                    </div>
+
+
+                    <div class="user-address">
+                        <label for="address">Address</label>
+                        <input name="address" type="text">
+                    </div>
+
+                    <div class="user-loc">
+                        <label for="acc-city">City</label>
+                        <input name="acc-city" type="text">
+
+                        <label for="acc-state">State</label>
+                        <input name="acc-state" type="text">
+
+                        <label for="acc-zip">Zip</label>
+                        <input name="acc-zip" type="text">
+
+                        <label for="acc-country">Country</label>
+                        <input name="acc-country" type="text">
+                    </div>
+
+                    <div class="acc-pwd">
+                        <label for="acc-password">Password</label>
+                        <input type="password">
+                    </div>
+
+
+                    <button type="submit">SUBMIT</button>
+                    
+                </div>  
+
+
+            </div>
+
+        </div>
+        
+    </div>
+
+
+{% endblock %}

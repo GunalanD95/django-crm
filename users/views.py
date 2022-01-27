@@ -75,3 +75,7 @@ def contact(request):
             return redirect('/')
     form = ContactForm()
     return render(request,'users/contact.html',{'form':form})
+
+
+def account(request):
+    return render(request,'users/account.html')
