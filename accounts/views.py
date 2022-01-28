@@ -30,7 +30,7 @@ def home(request):
     }
     return render(request, 'accounts/home.html',context)
 
-
+@unauthenticated_user
 def products(request):
     products = Product.objects.all()
     for i in products:
@@ -41,6 +41,7 @@ def products(request):
     }
     return render(request, 'accounts/products.html',context)
 
+@unauthenticated_user
 def customers(request):
     customers = Customer.objects.all()
     context = {
@@ -48,6 +49,7 @@ def customers(request):
     }
     return render(request, 'accounts/customers.html',context)
 
+@unauthenticated_user
 def customer(request, customer_id):
     customer = Customer.objects.get(id=customer_id)
     #saleorder_set = SaleOrder.objects.filter(sale_order_customer=customer)
@@ -61,6 +63,7 @@ def customer(request, customer_id):
     }
     return render(request, 'accounts/customer.html',context)
 
+@unauthenticated_user
 def total_orders(request):
     orders = SaleOrder.objects.all()
     my_filter = OrderFilter(request.GET,queryset=orders)
@@ -104,6 +107,7 @@ def create_customer(request):
         return render(request, 'accounts/home.html',context)
     return render(request, 'accounts/create_customer.html')
 
+@unauthenticated_user
 # @allowed_users(allowed_roles=['admin'])
 def create_order(request):
     customers = Customer.objects.all().order_by('id')
@@ -209,7 +213,7 @@ def update_order(request, order_id):
 
 
 
-
+@unauthenticated_user
 @allowed_users(allowed_roles=['admin'])
 def create_product(request):
     product_tag = ProductTag.objects.all()

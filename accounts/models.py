@@ -3,9 +3,7 @@ from sre_parse import CATEGORIES
 from django.db import models
 
 from django.contrib.auth.models import User
-
-# Create your models here.
-
+from django.db.models.signals import post_save , post_delete , pre_save
 
 class Customer(models.Model):
     customer_user = models.OneToOneField(User, on_delete=models.SET_NULL, null= True)
@@ -24,6 +22,16 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.customer_name
+
+# Django signals
+# def create_customer_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Customer.objects.create(customer_user=instance)
+
+# def update_customer_profile(sender, instance,created,  **kwargs):
+#     if created == False:
+#         instance.customer_user.save()
+
 
 class ProductTag(models.Model):
     product_tag = models.CharField(max_length=200, null= True)
