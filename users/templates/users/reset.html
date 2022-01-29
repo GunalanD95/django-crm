@@ -43,18 +43,6 @@
         </nav>
     </div>
 
-
-
-    <!-- MAIN CONTENT -->
-    <!-- <article>
-        {% block content %}
-
-        {% endblock %}
-    </article> -->
-
-
-<!-- ACCOUNT PAGE -->
-
         <div class="account-page">
             <div class="container">
                 <div class="row">
@@ -64,36 +52,14 @@
 
                     <div class="col-2">
                         <div class="form-container">
-                            <div class="form-btn">
-                                <span onclick="login()">Login</span>
-                                <span onclick="reg()">Register</span>
-                                <hr id="Indicator">
-                            </div>
-
-                            <form action="" enctype='multipart/form-data'  method="POST" id="login-form">
+                            <form action="" enctype='multipart/form-data'  method="POST" >
                                 {% csrf_token %}
-                                <input type="text" name="username" id="username" placeholder="Username">
-                                <input type="password" name="password" id="password" placeholder="Password">
-                                <!-- <button class="btn-sub" type="submit">SUBMIT</button> -->
-                                <input class="btn-sub" name="login" type="submit" value="SUBMIT">
+                                <label style="margin-right:6rem;position: relative;" for="password1">Create New Passoword</label>
+                                <input class="form-control" type="password" name="password1" id="password1" placeholder="Password">
+                                <input class="form-control" type="re-password" name="password2" id="password2" placeholder="Re Enter Password">
+                                <input class="btn-sub" name="new-pass" type="submit" value="SUBMIT">
 
-                                <a href="{% url 'reset_password' %}">Forgot Password</a>
                             </form>
-
-                            
-                                <form action="" enctype='multipart/form-data' method="POST" id="reg-form">
-                                    <div class="form-group">
-                                    {% csrf_token %}  
-                                    <input class="form-control" type="text" name="username" id="username" placeholder="Username">
-                                    <input class="form-control" type="email" name="email" id="email" placeholder="Email">
-                                    <input class="form-control" type="password" name="password1" id="password1" placeholder="Password">
-                                    <input class="form-control" type="re-password" name="password2" id="password2" placeholder="Re Enter Password">
-                                    <!-- <button class="btn-sub" type="submit">REGISTER</button> -->
-                                    <input class="btn-sub" name="register" type="submit" value="REGISTER">
-                                    </div>
-                                    {{ form.errors }}
-                                    {{ form.non_field_errors }}
-                                </form>
 
                         </div>
                     </div>
@@ -134,26 +100,7 @@
     </div>
 
 
-    <script>
-        // JS FOR TOGGLE FORM
 
-        var LoginForm = document.getElementById('login-form');
-        var RegForm = document.getElementById('reg-form');
-        var Indicator = document.getElementById('Indicator');
-
-
-        function reg(){
-            RegForm.style.transform = "translateX(0px)";
-            LoginForm.style.transform = "translateX(0px)";
-            Indicator.style.transform = "translateX(100px)";
-        }
-
-        function login(){
-            RegForm.style.transform = "translateX(300px)";
-            LoginForm.style.transform = "translateX(300px)";
-            Indicator.style.transform = "translateX(0px)";
-        }
-    </script>
 
 
 </body>

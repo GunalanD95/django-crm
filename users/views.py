@@ -107,3 +107,13 @@ def account(request):
             user.save()
             return redirect('account')
     return render(request,'users/account.html')
+
+
+def reset_mail(request):
+    return render(request,'users/reset_mail.html')
+
+def mail_sent(request):
+    return render(request,'users/mail_sent.html')
+
+def reset_password(request):
+    return render(request,'users/reset_mail.html')

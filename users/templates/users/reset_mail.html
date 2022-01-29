@@ -1,0 +1,101 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<style>
+    .errorlist{
+        list-style: none;
+        position: relative;
+        font-family: sans-serif;
+    }
+</style>
+
+<body>
+    <!-- NAV BAR -->
+    <div id="page-container">
+
+    <div class="navbar">
+        <nav class="nav">
+            <label class="logo">ZoldyckCRM</label>
+          <ul class="ul-nav">
+              <li><a  href="{% url 'home' %}">HOME</a></li>
+              <li><a  href="{% url 'products' %}">PRODUCTS</a></li>
+              <li><a  href="{% url 'customers' %}">CUSTOMERS</a></li>
+              <li><a  href="{% url 'orders' %}">ORDERS</a></li>
+              <li><a  href="{% url 'contact' %}">CONTACT US</a></li>             
+              {% if request.user.is_authenticated %}
+              <li><a  href="{% url 'logout' %}">LOGOUT</a></li>
+              {% else %} 
+              <li><a  href="{% url 'login' %}">LOGIN</a></li>
+              {% endif %}
+
+              
+          </ul>  
+        </nav>
+    </div>
+
+        <div class="account-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="{% static 'images/demon-slayer-1.png' %}" width="100%" style="background-color: radial-gradient(#fff,#ffd6d6)" alt="naruto-bg" >
+                    </div>
+
+                            <div class="center">
+                                <div class="heat">
+                                    <h2>Thank you</h2>
+                                    <span style="display: inline-block;font-size: 1.2rem;">Email Has Been Successfully Sent To Reset Password <label  style="font-size: 2rem;text-align: center;" for="" class="fas fa-check"></label></span>
+                                </div>                                
+                            </div>
+                            
+                </div>
+            </div>
+        </div>
+
+
+
+<!-- ACCOUNT ENDS -->
+
+
+
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-container">
+            <h3>ZoldyckCRM</h3>
+            <!-- <p>The Zoldyck Family (ゾルディック家け, Zorudikku-ke) is considered to be, by far, the deadliest and most infamous group of assassins in the world.</p> -->
+            <div class="social">
+                <ul class="socials">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fas fa-envelope-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>copyright &copy;2022 Zoldyck-Tech. designed by <span>Gunalan D</span></p>
+            </div>    
+        </div>
+    </footer>
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>
