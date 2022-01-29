@@ -34,9 +34,11 @@
               <li><a  href="{% url 'contact' %}">CONTACT US</a></li>             
               {% if request.user.is_authenticated %}
               <li><a  href="{% url 'logout' %}">LOGOUT</a></li>
+              <li><a  href="{% url 'account' %}">ACCOUNT</a></li>
               {% else %} 
               <li><a  href="{% url 'login' %}">LOGIN</a></li>
               {% endif %}
+              
 
               
           </ul>  
