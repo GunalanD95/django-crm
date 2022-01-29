@@ -50,13 +50,14 @@
                         <img src="{% static 'images/demon-slayer-1.png' %}" width="100%" style="background-color: radial-gradient(#fff,#ffd6d6)" alt="naruto-bg" >
                     </div>
 
-                    <div class="col-2">
-                        <div class="form-container">
-                         <h3>Password Reset Done</h3>
-                         <p>your password has been set . You may go ahead and log in now .</p>
-                         <a  href="{% url 'login' %}">Login</a>
-                        </div>
-                    </div>
+                            <div class="center">
+                                <div class="heat">
+                                    <h2 style="font-size:1.7rem">Thank you</h2>
+                                    <span style="font-weight:bolder;display: inline-block;font-size: 1.7rem;">Password Has Been Successfully Set , Kindly Log in now <label  style="font-size: 2rem;text-align: center;" for="" class="fas fa-check"></label></span>
+                                    <h2 style="margin-top:20px;color:#800080;font-size:1.7rem"><a style="color:#800080;" href="{% url 'login' %}">Login</a></h2>
+                                </div>                                
+                            </div>
+                            
                 </div>
             </div>
         </div>
