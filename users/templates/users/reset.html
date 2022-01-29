@@ -52,11 +52,12 @@
 
                     <div class="col-2">
                         <div class="form-container">
-                            <form action="" enctype='multipart/form-data'  method="POST" >
+                            <form action="#" enctype='multipart/form-data'  method="POST" >
                                 {% csrf_token %}
-                                <label style="margin-right:6rem;position: relative;" for="password1">Create New Passoword</label>
-                                <input class="form-control" type="password" name="password1" id="password1" placeholder="Password">
-                                <input class="form-control" type="re-password" name="password2" id="password2" placeholder="Re Enter Password">
+                                {{form}}
+                                <label style="margin-right:6rem;position: relative;" for="new_password1">Create New Passoword</label>
+                                <input class="form-control" type="password" name="new_password1" id="id_new_password1" placeholder="Password">
+                                <input class="form-control" type="password" name="new_password2" id="id_new_password1" placeholder="Re Enter Password">
                                 <input class="btn-sub" name="new-pass" type="submit" value="SUBMIT">
 
                             </form>
