@@ -90,7 +90,13 @@ button:hover{
     gap: 10px;  
 }
 
-
+.uk-pic{
+    position: relative;
+    bottom:80px;
+    left:20px;
+    height: 200px;
+    width: 90%;
+}
 
 /* ACCOUNT PAGE STYLE ENDS */
 </style>
@@ -107,8 +113,9 @@ button:hover{
                     <a href=""><button class="bck-home">Back to Home</button></a>
                     <span>ACCOUNT SETTINGS</span>
                     <i class="fa fa-user" aria-hidden="true"></i>
-
-                    <img src="{{user.customer_pic.url}}" style="width:44px;" alt="">
+                    {% if user.customer_pic %}
+                    <img class="uk-pic" src="{{user.customer_pic.url}}"  alt="customer picture">
+                    {% endif %}
 
                 </div>
  
