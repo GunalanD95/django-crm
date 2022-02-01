@@ -16,10 +16,10 @@ class NewUserForm(UserCreationForm):
     def save(self,commit=True):
         user = super(NewUserForm,self).save(commit=False)
         user.email = self.cleaned_data['email']
+        name = self.cleaned_data['username']
+        email_id = self.cleaned_data['email']
         if commit:
             user.save()
-            cus = Customer.objects.create(customer_user=user)
-            cus.save()
         return user
 
 class ContactForm(forms.Form):
