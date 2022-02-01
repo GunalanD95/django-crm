@@ -13,7 +13,7 @@ from django.http import HttpResponse
 # Create your views here.
 from django.contrib.auth.models import User
 from django.conf import settings
-from accounts.models import Customer
+
 
 @unauthenticated_user
 def index(request):
@@ -28,9 +28,6 @@ def index(request):
                 username = form.cleaned_data.get('username')
                 messages.success(request, f"New account created: {username}")
                 group = Group.objects.get(name='customer')
-                email = form.cleaned_data.get('email')
-                cus = Customer(customer_name=username, customer_email=email)
-                cus.save()
                 user.groups.add(group)
                 login(request,user)
                 messages.success(request,'You have been registered')

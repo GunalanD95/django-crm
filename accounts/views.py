@@ -367,8 +367,8 @@ def userPage(request):
     total_orders = tot_orders.count()
     invoiced = tot_orders.filter(status='invoiced').count()
     delivered = tot_orders.filter(status='delivered').count()
-    print("customer",customer)
-    print("orders",orders)
+    # print("customer",customer)
+    # print("orders",orders)
 
     context = {
         'customer': customer,

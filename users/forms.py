@@ -18,6 +18,8 @@ class NewUserForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
+            cus = Customer.objects.create(customer_user=user)
+            cus.save()
         return user
 
 class ContactForm(forms.Form):
